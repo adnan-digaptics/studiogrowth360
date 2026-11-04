@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://adnan-digaptics.github.io/studiogrowth360/sitemap.xml
