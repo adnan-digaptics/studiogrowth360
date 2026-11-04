@@ -14,7 +14,7 @@ export interface PortfolioDataType {
 const portfolio_data: PortfolioDataType[] = [
   {
     id: 1,
-    img: publicAsset("/assets/img/podcast/podcast_show_tech.jpg"),
+    img: publicAsset("/assets/img/podcast/wj/studio_slide_1.png"),
     title: "The Founder's Orbit: Frontier Tech & Venture",
     client: "Aiden Vance (Silicon Valley VC)",
     category: "Tech & Venture",
@@ -24,7 +24,7 @@ const portfolio_data: PortfolioDataType[] = [
   },
   {
     id: 2,
-    img: publicAsset("/assets/img/podcast/podcast_show_creator.jpg"),
+    img: publicAsset("/assets/img/podcast/wj/studio_slide_2.png"),
     title: "Unfiltered Culture & Modern Pulse",
     client: "Maya Sterling & Jordan Cross",
     category: "Culture & Creators",
@@ -34,7 +34,7 @@ const portfolio_data: PortfolioDataType[] = [
   },
   {
     id: 3,
-    img: publicAsset("/assets/img/podcast/podcast_show_deeptech.jpg"),
+    img: publicAsset("/assets/img/podcast/wj/studio_slide_3.png"),
     title: "The Artificial Minds Blueprint",
     client: "Dr. Aris Thorne (Frontier AI Lab)",
     category: "Deep Tech & AI",
@@ -44,7 +44,7 @@ const portfolio_data: PortfolioDataType[] = [
   },
   {
     id: 4,
-    img: publicAsset("/assets/img/podcast/podcast_audio_console.jpg"),
+    img: publicAsset("/assets/img/podcast/wj/studio_room_main.jpg"),
     title: "Macro Wealth & Sovereign Capital",
     client: "Harrison Sterling (Private Equity)",
     category: "Finance & Wealth",
@@ -54,7 +54,7 @@ const portfolio_data: PortfolioDataType[] = [
   },
   {
     id: 5,
-    img: publicAsset("/assets/img/podcast/podcast_mobile_shorts.jpg"),
+    img: publicAsset("/assets/img/podcast/wj/studio_slide_4.png"),
     title: "The Viral Cutdown & Retention Engine",
     client: "Studio360 Creator Network (Multiple Shows)",
     category: "Culture & Creators",
@@ -64,7 +64,7 @@ const portfolio_data: PortfolioDataType[] = [
   },
   {
     id: 6,
-    img: publicAsset("/assets/img/podcast/podcast_recording_session.jpg"),
+    img: publicAsset("/assets/img/podcast/wj/photo_studio_setup.png"),
     title: "Apex Longevity & Human Performance",
     client: "Dr. Elena Rostova (Neuroscience Institute)",
     category: "Health & Performance",
@@ -74,7 +74,7 @@ const portfolio_data: PortfolioDataType[] = [
   },
   {
     id: 7,
-    img: publicAsset("/assets/img/podcast/podcast_studio_lounge.jpg"),
+    img: publicAsset("/assets/img/podcast/wj/studio_wide_view.png"),
     title: "Sonic Architecture & Mix Sessions",
     client: "Studio360 Original Series",
     category: "Music & Audio",

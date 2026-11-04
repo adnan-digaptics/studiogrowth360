@@ -3,58 +3,8 @@ import Link from 'next/link';
 import React from 'react';
 
 import { Swiper, SwiperSlide } from "swiper/react";
-
-import blog_img_1 from "@/assets/img/post_1.jpg";
-import blog_img_2 from "@/assets/img/post_2.jpg";
-import blog_img_3 from "@/assets/img/post_3.jpg";
-import Image, { StaticImageData } from 'next/image';
-
-
-interface DataType {
-  id: number;
-  img: StaticImageData;
-  title: string;
-  des: string;
-}[]
-const blog_data: DataType[] = [
-  {
-    id: 1,
-    img: blog_img_1,
-    title: `What makes a useful brand strategy?`,
-    des: `Connect audience, positioning, and visual direction before investing in a new identity.`,
-  },
-  {
-    id: 2,
-    img: blog_img_2,
-    title: `Planning a website around customer needs`,
-    des: `Shape navigation and content around the questions your customers need answered.`,
-  },
-  {
-    id: 3,
-    img: blog_img_3,
-    title: `A clearer way to connect marketing channels`,
-    des: `Use consistent messaging and useful measurement to guide campaign decisions.`,
-  },
-  {
-    id: 4,
-    img: blog_img_1,
-    title: `When should a business consider automation?`,
-    des: `Recognize repetitive handoffs and decide where a defined workflow could help.`,
-  },
-  {
-    id: 5,
-    img: blog_img_2,
-    title: `The role of content in a strong digital presence`,
-    des: `Useful content helps people understand a brand and take a confident next step.`,
-  },
-  {
-    id: 6,
-    img: blog_img_3,
-    title: `A more thoughtful approach to user experience`,
-    des: `Improve clarity, accessibility, and feedback to make digital products easier to use.`,
-  },
-
-]
+import blog_data from '@/data/blog_data';
+import Image from 'next/image';
 
 
 

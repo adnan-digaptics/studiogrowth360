@@ -5,8 +5,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 
 import avatar_img from "@/assets/img/avatar_1.jpg";
-import testimonial_thumb from "@/assets/img/podcast/podcast_recording_session.jpg";
 import Image, { StaticImageData } from 'next/image';
+import { publicAsset } from "@/utils/publicAsset";
 
 interface TestimonialItem {
   id: number;
@@ -88,10 +88,13 @@ const Testimonial = ({ style_service }: TestimonialProps) => {
       <div className="container">
         <div className="row align-items-center g-4 g-lg-5">
           <div className="col-lg-5 mb-4 mb-lg-0">
-            <div className="cs_testimonial_thumb_box">
+            <div className="cs_testimonial_thumb_box position-relative">
               <Image 
-                src={testimonial_thumb} 
-                alt="StudioGrowth360 Live Podcast Recording Session" 
+                src={publicAsset("/assets/img/podcast/wj/studio_wide_view.png")} 
+                alt="StudioGrowth360 Master Panoramic Recording Suite" 
+                fill
+                sizes="(max-width: 991px) 100vw, 500px"
+                style={{ objectFit: 'cover' }}
                 priority
               />
               <div className="cs_testimonial_thumb_badge">

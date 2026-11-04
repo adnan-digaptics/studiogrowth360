@@ -2546,3 +2546,95 @@ button.cs_btn {
 .sg_advantage_section, .sg_about_philosophy_section {
   background-color: var(--sg-bg-master) !important;
 }
+
+/* ==============================================================
+   16. LUXURY BROADCAST MARQUEE TICKER
+   ============================================================== */
+.sg_studio_marquee {
+  background: linear-gradient(180deg, rgba(18, 18, 24, 0.95) 0%, rgba(9, 9, 11, 0.98) 100%) !important;
+  border-top: 1px solid rgba(255, 107, 0, 0.22) !important;
+  border-bottom: 1px solid rgba(255, 107, 0, 0.22) !important;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 107, 0, 0.15);
+  padding: 18px 0 !important;
+
+  /* Side fade masks for clean vignette transition */
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: clamp(40px, 8vw, 120px);
+    z-index: 3;
+    pointer-events: none;
+  }
+  &::before {
+    left: 0;
+    background: linear-gradient(90deg, #09090B 0%, rgba(9, 9, 11, 0) 100%);
+  }
+  &::after {
+    right: 0;
+    background: linear-gradient(-90deg, #09090B 0%, rgba(9, 9, 11, 0) 100%);
+  }
+
+  .sg_marquee_track {
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    user-select: none;
+    width: 100%;
+  }
+
+  .sg_marquee_group {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    animation: sg_marquee_slide 35s linear infinite;
+    will-change: transform;
+  }
+
+  &:hover .sg_marquee_group {
+    animation-play-state: paused;
+  }
+
+  .sg_marquee_item {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 clamp(16px, 2.5vw, 32px);
+    font-size: clamp(15px, 1.8vw, 20px);
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-family: var(--font-primary, sans-serif);
+  }
+
+  .sg_marquee_text_white {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .sg_marquee_text_accent {
+    color: #FF6B00 !important;
+    text-shadow: 0 0 16px rgba(255, 107, 0, 0.45);
+  }
+
+  .sg_marquee_bullet {
+    color: #FF6B00;
+    font-size: 13px;
+    filter: drop-shadow(0 0 6px rgba(255, 107, 0, 0.8));
+    display: inline-block;
+  }
+}
+
+@keyframes sg_marquee_slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+

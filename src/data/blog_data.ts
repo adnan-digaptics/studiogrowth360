@@ -19,7 +19,7 @@ export interface BlogItem {
 const blog_data: BlogItem[] = [
   {
     id: 1,
-    img: publicAsset("/assets/img/podcast/podcast_recording_session.jpg"),
+    img: publicAsset("/assets/img/podcast/wj/how_it_works_studio.webp"),
     category: "Show Strategy",
     readTime: "6 min read",
     date: "November 2026",
@@ -28,7 +28,7 @@ const blog_data: BlogItem[] = [
   },
   {
     id: 2,
-    img: publicAsset("/assets/img/podcast/podcast_audio_console.jpg"),
+    img: publicAsset("/assets/img/podcast/wj/photo_studio_setup.png"),
     category: "Audio Engineering",
     readTime: "8 min read",
     date: "November 2026",
@@ -37,7 +37,7 @@ const blog_data: BlogItem[] = [
   },
   {
     id: 3,
-    img: publicAsset("/assets/img/podcast/podcast_mobile_shorts.jpg"),
+    img: publicAsset("/assets/img/podcast/wj/photo_studio_3.png"),
     category: "Viral Shorts",
     readTime: "5 min read",
     date: "October 2026",
@@ -46,7 +46,7 @@ const blog_data: BlogItem[] = [
   },
   {
     id: 4,
-    img: publicAsset("/assets/img/podcast/podcast_show_tech.jpg"),
+    img: publicAsset("/assets/img/podcast/wj/studio_set_cinematic.jpg"),
     category: "Executive Shows",
     readTime: "7 min read",
     date: "October 2026",
@@ -55,7 +55,7 @@ const blog_data: BlogItem[] = [
   },
   {
     id: 5,
-    img: publicAsset("/assets/img/podcast/hero_podcast_studio.jpg"),
+    img: publicAsset("/assets/img/podcast/wj/studio_portrait_view.png"),
     category: "Studio Design",
     readTime: "6 min read",
     date: "October 2026",
@@ -64,7 +64,7 @@ const blog_data: BlogItem[] = [
   },
   {
     id: 6,
-    img: publicAsset("/assets/img/podcast/podcast_studio_lounge.jpg"),
+    img: publicAsset("/assets/img/podcast/wj/podcast_image_1.png"),
     category: "Syndication & SEO",
     readTime: "7 min read",
     date: "September 2026",

@@ -7,16 +7,16 @@ import FooterOne from '@/layouts/footers/FooterOne';
 import HeaderOne from '@/layouts/headers/HeaderOne';
 
 export const metadata: Metadata = {
-  title: "Studio Insights | StudioGrowth360",
+  title: "Blog",
   description:
     "Read StudioGrowth360's blog for field-tested playbooks on 4K video podcasting, broadcast audio mastering, viral shorts, and global RSS syndication.",
   openGraph: {
-    title: "Studio Insights | StudioGrowth360",
+    title: "Blog | Studio360",
     description:
       "Read StudioGrowth360's blog for field-tested playbooks on 4K video podcasting, broadcast audio mastering, viral shorts, and global RSS syndication.",
   },
   twitter: {
-    title: "Studio Insights | StudioGrowth360",
+    title: "Blog | Studio360",
     description:
       "Read StudioGrowth360's blog for field-tested playbooks on 4K video podcasting, broadcast audio mastering, viral shorts, and global RSS syndication.",
   },

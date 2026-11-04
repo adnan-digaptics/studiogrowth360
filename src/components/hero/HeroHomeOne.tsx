@@ -93,7 +93,7 @@ const HeroHomeOne = () => {
             {/* Studio Image Content */}
             <div className="position-relative overflow-hidden" style={{ aspectRatio: '16/8.5' }}>
               <Image
-                src={publicAsset("/assets/img/podcast/hero_podcast_studio.jpg")}
+                src={publicAsset("/assets/img/podcast/wj/podcast_banner.webp")}
                 alt="Studio Growth 360 Premier 4K Podcast Recording Suite"
                 fill
                 priority

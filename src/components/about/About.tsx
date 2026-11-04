@@ -81,13 +81,13 @@ const About = () => {
           </div>
         </div>
 
-        {/* Studio Gallery with Generated Podcast Images */}
+        {/* Studio Gallery with Authentic Studio Photos */}
         <div className="container mt-5">
           <div className="row g-4">
             <div className="col-12 col-md-4">
               <div className="rounded-4 overflow-hidden h-100 shadow position-relative" style={{ minHeight: 'clamp(240px, 45vw, 360px)' }}>
                 <Image
-                  src={publicAsset("/assets/img/podcast/podcast_recording_session.jpg")}
+                  src={publicAsset("/assets/img/podcast/wj/studio_session_abd1.jpg")}
                   alt="Studio360 Live Podcast Recording Session"
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
@@ -98,8 +98,8 @@ const About = () => {
             <div className="col-12 col-md-5">
               <div className="rounded-4 overflow-hidden h-100 shadow position-relative" style={{ minHeight: 'clamp(240px, 45vw, 360px)' }}>
                 <Image
-                  src={publicAsset("/assets/img/podcast/podcast_studio_branded_sign.jpg")}
-                  alt="Studio Growth 360 Acoustic Neon Suite"
+                  src={publicAsset("/assets/img/podcast/wj/studio_room_main.jpg")}
+                  alt="Studio Growth 360 Master Recording Studio Room"
                   fill
                   sizes="(max-width: 768px) 100vw, 42vw"
                   style={{ objectFit: 'cover' }}
@@ -109,8 +109,8 @@ const About = () => {
             <div className="col-12 col-md-3 d-flex flex-column gap-4">
               <div className="rounded-4 overflow-hidden shadow position-relative" style={{ height: 'clamp(140px, 20vw, 170px)' }}>
                 <Image
-                  src={publicAsset("/assets/img/podcast/podcast_audio_console.jpg")}
-                  alt="Podcast Audio Mixing Console"
+                  src={publicAsset("/assets/img/podcast/wj/podcast_setup_21.jpg")}
+                  alt="Podcast Multi-Cam Rig & Teleprompter Setup"
                   fill
                   sizes="(max-width: 768px) 100vw, 25vw"
                   style={{ objectFit: 'cover' }}
@@ -118,7 +118,7 @@ const About = () => {
               </div>
               <div className="rounded-4 overflow-hidden shadow position-relative" style={{ height: 'clamp(140px, 20vw, 170px)' }}>
                 <Image
-                  src={publicAsset("/assets/img/podcast/podcast_studio_lounge.jpg")}
+                  src={publicAsset("/assets/img/podcast/wj/creative_comfort_lounge.png")}
                   alt="VIP Creator Green Room Lounge"
                   fill
                   sizes="(max-width: 768px) 100vw, 25vw"

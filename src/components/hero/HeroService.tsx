@@ -33,7 +33,7 @@ const HeroService = () => {
                   <div
                     className="cs_card_number cs_primary_font"
                     style={{
-                      backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${publicAsset('/assets/img/podcast/podcast_audio_console.jpg')}')`,
+                      backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)), url('${publicAsset(item.img)}')`,
                     }}
                   >
                     {item.id}

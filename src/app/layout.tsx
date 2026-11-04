@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://studiogrowth360.com";
 const siteBaseUrl = `${siteUrl.replace(/\/+$/, "")}/`;
-const heroImageUrl = new URL("assets/img/podcast/hero_podcast_studio.jpg", siteBaseUrl).toString();
+const heroImageUrl = new URL("assets/img/podcast/wj/podcast_banner.webp", siteBaseUrl).toString();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteBaseUrl),

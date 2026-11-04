@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import React from 'react';
 import HeaderOne from '@/layouts/headers/HeaderOne';
 import HeroHomeOne from '@/components/hero/HeroHomeOne';
-import BrandHomeOne from '@/components/brand/BrandHomeOne';
 import MarqueeAreaHomeOne from '@/components/brand/MarqueeAreaHomeOne';
 import FunFactHomeOne from '@/components/funfact/FunFactHomeOne';
 import AboutHomeOne from '@/components/about/AboutHomeOne';
@@ -18,7 +17,7 @@ import Wrapper from '@/layouts/Wrapper';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://studiogrowth360.com";
 const siteBaseUrl = `${siteUrl.replace(/\/+$/, "")}/`;
-const heroImageUrl = new URL("assets/img/podcast/hero_podcast_studio.jpg", siteBaseUrl).toString();
+const heroImageUrl = new URL("assets/img/podcast/wj/podcast_banner.webp", siteBaseUrl).toString();
 
 export const metadata: Metadata = {
   title: "Home",
@@ -46,7 +45,6 @@ const HomePage = () => {
         <div id="smooth-content">
           <main>
             <HeroHomeOne />
-            <BrandHomeOne />
             <MarqueeAreaHomeOne />
             <FunFactHomeOne />
             <AboutHomeOne />

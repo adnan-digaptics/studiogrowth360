@@ -87,7 +87,7 @@ const AboutHomeOne = () => {
               {/* Main Photo Frame */}
               <div className="rounded-4 overflow-hidden position-relative shadow-2xl" style={{ border: '1px solid rgba(255, 255, 255, 0.12)', aspectRatio: '4/3' }}>
                 <Image
-                  src={publicAsset("/assets/img/podcast/podcast_recording_session.jpg")}
+                  src={publicAsset("/assets/img/podcast/wj/studio_session_abd1.jpg")}
                   alt="Studio360 Live Podcast Recording Session"
                   fill
                   sizes="(max-width: 991px) 100vw, 550px"

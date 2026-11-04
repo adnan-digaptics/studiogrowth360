@@ -1,5 +1,6 @@
 export interface StudioService {
   id: string;
+  img: string;
   title: string;
   shortDesc: string;
   description: string;
@@ -11,6 +12,7 @@ export interface StudioService {
 const studioServices: StudioService[] = [
   {
     id: "01",
+    img: "/assets/img/podcast/wj/multicamera_recording.png",
     title: "Multi-Cam 4K Studio Rental & Live Switching",
     shortDesc: "Acoustically tuned sets, Sony Cinema FX6 cameras, Shure SM7B mics, and on-site engineers.",
     description:
@@ -27,6 +29,7 @@ const studioServices: StudioService[] = [
   },
   {
     id: "02",
+    img: "/assets/img/podcast/wj/acoustic_environment.png",
     title: "Full Episode Post-Production & Sound Design",
     shortDesc: "Cinema-grade multi-cam editing, audio de-noising, sonic branding, and DaVinci color grading.",
     description:
@@ -43,6 +46,7 @@ const studioServices: StudioService[] = [
   },
   {
     id: "03",
+    img: "/assets/img/podcast/wj/smart_auto_tracking.png",
     title: "Viral Shorts, Reels & TikTok Growth Engine",
     shortDesc: "High-retention 9:16 vertical cutdowns with kinetic subtitles, hooks, and punchy sound design.",
     description:
@@ -59,6 +63,7 @@ const studioServices: StudioService[] = [
   },
   {
     id: "04",
+    img: "/assets/img/podcast/wj/studio_lighting_setup.png",
     title: "Show Launch, Syndication & SEO Show Notes",
     shortDesc: "End-to-end RSS distribution to Spotify, Apple & YouTube with search-optimized metadata.",
     description:
@@ -75,6 +80,7 @@ const studioServices: StudioService[] = [
   },
   {
     id: "05",
+    img: "/assets/img/podcast/wj/broadcast_soundproofing.png",
     title: "Remote & Hybrid Recording Concierge",
     shortDesc: "Studio-grade lossless audio & 4K video recording for remote global guests via Riverside.fm.",
     description:
@@ -91,6 +97,7 @@ const studioServices: StudioService[] = [
   },
   {
     id: "06",
+    img: "/assets/img/podcast/wj/creative_comfort_lounge.png",
     title: "Executive & Branded Corporate Podcasting",
     shortDesc: "Turnkey enterprise thought-leadership shows for CEOs, VCs, and category-defining brands.",
     description:
