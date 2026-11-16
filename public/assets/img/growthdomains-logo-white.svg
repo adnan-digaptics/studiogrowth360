@@ -1,0 +1,38 @@
+<svg width="270" height="44" viewBox="0 0 270 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gd_accent_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF8A33" />
+      <stop offset="100%" stop-color="#FF5500" />
+    </linearGradient>
+    <linearGradient id="gd_icon_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#242430" />
+      <stop offset="100%" stop-color="#14141A" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Icon Symbol: Studio Domain Node & Growth Dynamic -->
+  <g transform="translate(2, 4)">
+    <!-- Base Node Container -->
+    <rect width="36" height="36" rx="10" fill="url(#gd_icon_bg)" stroke="rgba(255, 107, 0, 0.4)" stroke-width="1.5" />
+    
+    <!-- Concentric Studio Sound Waves / Nodes -->
+    <circle cx="18" cy="18" r="12" stroke="#FFFFFF" stroke-opacity="0.25" stroke-width="1.5" stroke-dasharray="4 3" />
+    <circle cx="18" cy="18" r="8" stroke="url(#gd_accent_grad)" stroke-width="1.8" />
+    
+    <!-- Ascending Growth Arrow -->
+    <path d="M14 22L22 14M22 14H16M22 14V20" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- Pulsing Live Studio Dot -->
+    <circle cx="27" cy="9" r="2.5" fill="#FF5500" />
+  </g>
+
+  <!-- Wordmark -->
+  <text x="48" y="28" fill="#FFFFFF" font-family="'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="800" letter-spacing="-0.4">Growth<tspan fill="url(#gd_accent_grad)">Domains</tspan></text>
+  
+  <!-- SaaS Pill Badge: STUDIOS -->
+  <g transform="translate(202, 12)">
+    <rect width="64" height="20" rx="5" fill="rgba(255, 107, 0, 0.12)" stroke="rgba(255, 107, 0, 0.4)" stroke-width="1" />
+    <text x="32" y="14" fill="#FF8A33" font-family="'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="800" letter-spacing="1" text-anchor="middle">STUDIOS</text>
+  </g>
+</svg>
+

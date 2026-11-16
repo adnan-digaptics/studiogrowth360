@@ -620,7 +620,7 @@ label {
 .cs_cursor_lg {
     width: 40px;
     height: 40px;
-    border: 1px solid $accent;
+    border: 1px solid #0066FF;
     left: 0;
     top: 0;
     pointer-events: none;
@@ -630,7 +630,7 @@ label {
 .cs_cursor_sm {
     width: 8px;
     height: 8px;
-    background-color: $accent;
+    background-color: #0066FF;
     left: 0;
     top: 0;
     pointer-events: none;
@@ -2000,7 +2000,7 @@ label {
     position: fixed;
     width: 40px;
     height: 40px;
-    border: 2px solid $accent;
+    border: 2px solid #0066FF;
     border-radius: 50%;
     left: 0;
     top: 0;
@@ -2022,7 +2022,7 @@ label {
     position: fixed;
     width: 8px;
     height: 8px;
-    background-color: $accent;
+    background-color: #0066FF;
     border-radius: 50%;
     left: 0;
     top: 0;

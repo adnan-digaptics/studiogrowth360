@@ -1,39 +1,68 @@
 import type { Metadata } from 'next';
 import React from 'react';
 import HeaderOne from '@/layouts/headers/HeaderOne';
-import HeroHomeOne from '@/components/hero/HeroHomeOne';
-import MarqueeAreaHomeOne from '@/components/brand/MarqueeAreaHomeOne';
-import FunFactHomeOne from '@/components/funfact/FunFactHomeOne';
-import AboutHomeOne from '@/components/about/AboutHomeOne';
-import ServiceHomeOne from '@/components/service/ServiceHomeOne';
-import PortfolioHomeOne from '@/components/portfolio/PortfolioHomeOne';
-import Service from '@/components/service/Service';
-import AwardsHomeOne from '@/components/awards/AwardsHomeOne';
-import Testimonial from '@/components/testimonial/Testimonial';
-import StudioGrowthApproach from '@/components/about/StudioGrowthApproach';
-import AboutHomeFour from '@/components/about/AboutHomeFour';
+import AgencyHero from '@/components/agency/AgencyHero';
+import AgencyTrustBar from '@/components/agency/AgencyTrustBar';
+import AgencyStudioShowcase from '@/components/agency/AgencyStudioShowcase';
+import AgencyServicesBento from '@/components/agency/AgencyServicesBento';
+import AgencyIndustriesSection from '@/components/agency/AgencyIndustriesSection';
+import AgencyComparisonSection from '@/components/agency/AgencyComparisonSection';
+import AgencyWhyChooseUs from '@/components/agency/AgencyWhyChooseUs';
+import AgencyHowItWorks from '@/components/agency/AgencyHowItWorks';
+import AgencyRoiCalculator from '@/components/agency/AgencyRoiCalculator';
+import AgencyCrmSolutions from '@/components/agency/AgencyCrmSolutions';
+import AgencyAutomationTech from '@/components/agency/AgencyAutomationTech';
+import AgencyAiSolutions from '@/components/agency/AgencyAiSolutions';
+import AgencyProcessSection from '@/components/agency/AgencyProcessSection';
+import AgencyTestimonialsSection from '@/components/agency/AgencyTestimonialsSection';
+import AgencyCertificationsSection from '@/components/agency/AgencyCertificationsSection';
+import AgencyPricingSection from '@/components/agency/AgencyPricingSection';
+import AgencyFaqSection from '@/components/agency/AgencyFaqSection';
+import AgencyCtaSection from '@/components/agency/AgencyCtaSection';
 import FooterOne from '@/layouts/footers/FooterOne';
 import Wrapper from '@/layouts/Wrapper';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://studiogrowth360.com";
-const siteBaseUrl = `${siteUrl.replace(/\/+$/, "")}/`;
-const heroImageUrl = new URL("assets/img/podcast/wj/podcast_banner.webp", siteBaseUrl).toString();
-
 export const metadata: Metadata = {
-  title: "Home",
+  title: "StudioGrowth360 | Studio Growth, CRM & Automation Partner for USA Studios",
   description:
-    "StudioGrowth360 is an award-winning luxury 4K podcast recording studio, full-service audio engineering facility, and turnkey viral shorts production network.",
+    "We help photography, podcast, yoga, and creative studios across the USA generate more leads, automate daily operations, manage clients, and grow their businesses with powerful CRM, n8n, and AI automation solutions. Automate. Grow. Scale.",
+  keywords: [
+    "Studio Automation Services",
+    "CRM for Photography Studios",
+    "Photography Studio Lead Generation",
+    "Podcast Studio Automation",
+    "Yoga Studio CRM",
+    "Craft Studio Automation",
+    "GoHighLevel Services",
+    "n8n Automation Agency",
+    "Business Automation Services",
+    "AI Automation for Small Businesses",
+    "Lead Generation for Studios",
+    "CRM Automation Solutions",
+  ],
   openGraph: {
-    title: "Home | Studio360",
+    title: "StudioGrowth360 | Automate. Grow. Scale.",
     description:
-      "StudioGrowth360 is an award-winning luxury 4K podcast recording studio, full-service audio engineering facility, and turnkey viral shorts production network.",
-    images: [heroImageUrl],
+      "All-in-one studio growth, CRM & automation partner for photography, podcast, yoga, and craft studios across the USA.",
+    url: "https://studiogrowth360.com",
+    siteName: "StudioGrowth360",
+    images: [
+      {
+        url: "/assets/img/studios/podcast-studio.jpg",
+        width: 1200,
+        height: 630,
+        alt: "StudioGrowth360 Platform",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
-    title: "Home | Studio360",
+    card: "summary_large_image",
+    title: "StudioGrowth360 | Studio Growth, CRM & Automation Partner",
     description:
-      "StudioGrowth360 is an award-winning luxury 4K podcast recording studio, full-service audio engineering facility, and turnkey viral shorts production network.",
-    images: [heroImageUrl],
+      "Grow your studio. Automate your business. Scale without limits with GoHighLevel CRM, n8n workflows, and AI voice agents.",
+    images: ["/assets/img/studios/podcast-studio.jpg"],
   },
 };
 
@@ -44,18 +73,61 @@ const HomePage = () => {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
-            <HeroHomeOne />
-            <MarqueeAreaHomeOne />
-            <FunFactHomeOne />
-            <AboutHomeOne />
-            <ServiceHomeOne />
-            <PortfolioHomeOne />
-            <Service />
-            <AwardsHomeOne />
-            <Testimonial />
-            <StudioGrowthApproach />
-            <AboutHomeFour />
+            {/* 1. Hero Section (With 4-Tab Interactive Live Dashboard Preview) */}
+            <AgencyHero />
+
+            {/* 2. Trusted Growth Solutions for Studios */}
+            <AgencyTrustBar />
+
+            {/* 2.5 Real Studio Facilities Visual Showcase (Photorealistic Studio Spaces) */}
+            <AgencyStudioShowcase />
+
+            {/* 3. Our Services (Bento Grid) */}
+            <AgencyServicesBento />
+
+            {/* 4. Industries We Serve (Who We Help) */}
+            <AgencyIndustriesSection />
+
+            {/* 5. Before vs. After Comparison Matrix (Manual Chaos vs. Automated OS) */}
+            <AgencyComparisonSection />
+
+            {/* 6. Why Choose StudioGrowth360 */}
+            <AgencyWhyChooseUs />
+
+            {/* 7. How Our Automation System Works (5-Stage Interactive Workflow) */}
+            <AgencyHowItWorks />
+
+            {/* 8. Interactive Studio Yield & ROI Modeler */}
+            <AgencyRoiCalculator />
+
+            {/* 9. Lead Generation and CRM Solutions */}
+            <AgencyCrmSolutions />
+
+            {/* 10. n8n and GoHighLevel Automation */}
+            <AgencyAutomationTech />
+
+            {/* 11. AI-Powered Business Solutions (24/7 AI Receptionist) */}
+            <AgencyAiSolutions />
+
+            {/* 12. Our 4-Step Implementation Process */}
+            <AgencyProcessSection />
+
+            {/* 13. Studio Operator Testimonials & Case Studies */}
+            <AgencyTestimonialsSection />
+
+            {/* 14. Industry Recognition & Partner Certifications */}
+            <AgencyCertificationsSection />
+
+            {/* 15. Pricing / Packages (Monthly/Annual 20% Switch) */}
+            <AgencyPricingSection />
+
+            {/* 16. Frequently Asked Questions (Accordion + Support Card) */}
+            <AgencyFaqSection />
+
+            {/* 17. Strong Call-to-Action Section */}
+            <AgencyCtaSection />
           </main>
+          {/* 18. Modern Footer */}
           <FooterOne />
         </div>
       </div>

@@ -8,7 +8,10 @@ const MouseMove = () => {
     if (typeof window === "undefined") return;
 
     // Disable custom cursor on touch devices or small screens
-    const isTouch = window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window || window.innerWidth <= 1024;
+    const isTouch =
+      window.matchMedia("(pointer: coarse)").matches ||
+      "ontouchstart" in window ||
+      window.innerWidth <= 1024;
     if (isTouch) return;
 
     const cursor1 = document.querySelector(".cs_cursor_1") as HTMLElement | null;
@@ -62,12 +65,43 @@ const MouseMove = () => {
       }
     };
 
+    const mouseoverHandler = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (!target) return;
+      const interactive = target.closest(
+        'a, button, [role="button"], input, select, textarea, .cursor-pointer, .sg_btn_primary, .sg_btn_secondary, .nav-link, .sg_badge_electric'
+      );
+      if (interactive) {
+        cursor1.classList.add("cs_cursor_hover");
+        cursor2.classList.add("cs_cursor_hover");
+      } else {
+        cursor1.classList.remove("cs_cursor_hover");
+        cursor2.classList.remove("cs_cursor_hover");
+      }
+    };
+
+    const mousedownHandler = () => {
+      cursor1.classList.add("cs_cursor_active");
+      cursor2.classList.add("cs_cursor_active");
+    };
+
+    const mouseupHandler = () => {
+      cursor1.classList.remove("cs_cursor_active");
+      cursor2.classList.remove("cs_cursor_active");
+    };
+
     window.addEventListener("mousemove", mousemoveHandler, { passive: true });
+    window.addEventListener("mouseover", mouseoverHandler, { passive: true });
+    window.addEventListener("mousedown", mousedownHandler, { passive: true });
+    window.addEventListener("mouseup", mouseupHandler, { passive: true });
     document.addEventListener("mouseleave", mouseleaveHandler);
     document.addEventListener("mouseenter", mouseenterHandler);
 
     return () => {
       window.removeEventListener("mousemove", mousemoveHandler);
+      window.removeEventListener("mouseover", mouseoverHandler);
+      window.removeEventListener("mousedown", mousedownHandler);
+      window.removeEventListener("mouseup", mouseupHandler);
       document.removeEventListener("mouseleave", mouseleaveHandler);
       document.removeEventListener("mouseenter", mouseenterHandler);
     };

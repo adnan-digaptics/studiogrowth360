@@ -13,7 +13,7 @@ export default function NotFound() {
           <main className="text-center py-5 d-flex flex-column align-items-center justify-content-center" style={{ minHeight: '80vh', background: '#09090B' }}>
             <div className="container">
               <div className="cs_height_120 cs_height_lg_60"></div>
-              <span className="cs_primary_font font-weight-bold" style={{ fontSize: 'clamp(72px, 12vw, 160px)', color: '#FF6B00', lineHeight: 1 }}>
+              <span className="cs_primary_font font-weight-bold" style={{ fontSize: 'clamp(72px, 12vw, 160px)', color: '#0066FF', lineHeight: 1 }}>
                 404
               </span>
               <h1 className="text-white mt-3 mb-3 font-weight-bold" style={{ fontSize: 'clamp(28px, 4vw, 42px)' }}>

@@ -4,46 +4,25 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Logo_white from "@/assets/img/studiogrowth360-logo-white.svg";
-
-interface MenuItem {
-  id: number;
-  title: string;
-  link: string;
-}
-
-const menu_data: MenuItem[] = [
-  { id: 1, title: "Home", link: "/" },
-  { id: 2, title: "About", link: "/about" },
-  { id: 3, title: "Services", link: "/service" },
-  { id: 4, title: "Portfolio", link: "/portfolio" },
-  { id: 5, title: "Studio Insights", link: "/blog" },
-  { id: 6, title: "Studio Guide", link: "/faq" },
-  { id: 7, title: "Contact", link: "/contact" },
-];
+import LogoImg from "@/assets/img/studiogrowth360-logo.svg";
+import { mainServices, industrySolutions } from "@/data/agency";
+import { IconContainer, getServiceVectorIcon, getIndustryVectorIcon } from "@/components/common/AgencyIcons";
 
 const HeaderOne = () => {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
-  const [sideDrawerOpen, setSideDrawerOpen] = useState<boolean>(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen((prev) => !prev);
-    setSideDrawerOpen(false);
-  };
-
-  const toggleSideDrawer = () => {
-    setSideDrawerOpen((prev) => !prev);
-    setMobileMenuOpen(false);
   };
 
   const closeAll = () => {
     setMobileMenuOpen(false);
-    setSideDrawerOpen(false);
+    setActiveDropdown(null);
   };
 
-  // Keyboard navigation listener (ESC key closes open drawers)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -54,9 +33,8 @@ const HeaderOne = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  // Lock body scroll when mobile menu or side drawer is active
   useEffect(() => {
-    if (mobileMenuOpen || sideDrawerOpen) {
+    if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
       document.body.style.touchAction = "none";
     } else {
@@ -67,25 +45,12 @@ const HeaderOne = () => {
       document.body.style.overflow = "";
       document.body.style.touchAction = "";
     };
-  }, [mobileMenuOpen, sideDrawerOpen]);
+  }, [mobileMenuOpen]);
 
-  useEffect(() => {
-    const desktopViewport = window.matchMedia("(min-width: 1200px)");
-    const closeMenuOnBreakpointChange = (event: MediaQueryListEvent) => {
-      if ((event.matches && mobileMenuOpen) || (!event.matches && sideDrawerOpen)) {
-        closeAll();
-      }
-    };
-
-    desktopViewport.addEventListener("change", closeMenuOnBreakpointChange);
-    return () => desktopViewport.removeEventListener("change", closeMenuOnBreakpointChange);
-  }, [mobileMenuOpen, sideDrawerOpen]);
-
-  // Smooth scroll listener without layout thrashing
   useEffect(() => {
     const handleScroll = () => {
       const windowTop = window.pageYOffset || document.documentElement.scrollTop;
-      setScrolled(windowTop > 40);
+      setScrolled(windowTop > 20);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -95,251 +60,391 @@ const HeaderOne = () => {
 
   return (
     <>
-      <header className={`cs_site_header cs_style1 cs_sticky_header cs_site_header_full_width ${scrolled ? 'cs_header_scrolled' : ''}`}>
-        <div className="cs_main_header">
-          <div className="container">
-            <div className="cs_main_header_in">
-              {/* 1. Left: Brand Logo */}
-              <div className="cs_main_header_left">
-                <Link className="cs_site_branding" href="/" aria-label="StudioGrowth360 Home" onClick={closeAll}>
-                  <Image src={Logo_white} alt="StudioGrowth360 logo" priority width={210} height={36} style={{ width: 'auto', height: '36px' }} />
+      <header
+        className={`cs_site_header cs_sticky_header w-100 position-sticky top-0 transition-all ${
+          scrolled ? 'bg-white shadow-sm py-2' : 'bg-white py-3'
+        }`}
+        style={{
+          zIndex: 1000,
+          borderBottom: '1px solid #E2E8F0',
+          backdropFilter: 'blur(16px)',
+          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+        }}
+      >
+        <div className="container">
+          <div className="d-flex align-items-center justify-content-between">
+            {/* 1. Brand Logo */}
+            <div className="d-flex align-items-center gap-3">
+              <Link href="/" aria-label="StudioGrowth360 Home" onClick={closeAll}>
+                <Image
+                  src={LogoImg}
+                  alt="StudioGrowth360 Logo"
+                  priority
+                  width={220}
+                  height={38}
+                  style={{ width: 'auto', height: '34px' }}
+                />
+              </Link>
+            </div>
+
+            {/* 2. Desktop Navigation */}
+            <div className="d-none d-xl-flex align-items-center">
+              <nav className="d-flex align-items-center gap-1" aria-label="Main Navigation">
+                <Link
+                  href="/"
+                  className={`px-3 py-2 rounded-pill font-size-14 font-weight-bold text-decoration-none transition-all ${
+                    pathname === "/" ? "text-primary bg-primary bg-opacity-10" : "text-secondary hover-dark"
+                  }`}
+                  style={{ color: pathname === "/" ? "#0066FF" : "#1E293B" }}
+                >
+                  Home
                 </Link>
-              </div>
 
-              {/* 2. Center: Centered Desktop Navigation */}
-              <div className="cs_main_header_center d-none d-xl-flex">
-                <nav className="cs_nav cs_nav_desktop" aria-label="Main Navigation">
-                  <ul className="cs_nav_list">
-                    {menu_data.map((item) => {
-                      const isActive = pathname === item.link;
-                      return (
-                        <li key={item.id} className={isActive ? "current-menu-item" : ""}>
-                          <Link href={item.link} className={isActive ? "cs_active" : ""}>
-                            <span>{item.title}</span>
-                            {isActive && <span className="cs_active_dot"></span>}
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </nav>
-              </div>
-
-              {/* 3. Right: Desktop Action Cluster & Modern Mobile Controls */}
-              <div className="cs_main_header_right">
-                {/* Desktop Book CTA */}
-                <div className="d-none d-xl-flex align-items-center">
-                  <Link href="/contact" className="cs_btn cs_style_1 cs_header_cta">
-                    <span>Book Studio Time</span>
-                    <svg width="15" height="11" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M18.5303 7.03033C18.8232 6.73744 18.8232 6.26256 18.5303 5.96967L13.7574 1.1967C13.4645 0.903806 12.9896 0.903806 12.6967 1.1967C12.4038 1.48959 12.4038 1.96447 12.6967 2.25736L16.9393 6.5L12.6967 10.7426C12.4038 11.0355 12.4038 11.5104 12.6967 11.8033C12.9896 12.0962 13.4645 12.0962 13.7574 11.8033L18.5303 7.03033ZM0 7.25H18V5.75H0V7.25Z" fill="currentColor"/>
+                {/* Services Dropdown */}
+                <div
+                  className="position-relative"
+                  onMouseEnter={() => setActiveDropdown("services")}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  <Link
+                    href="/services"
+                    className={`px-3 py-2 rounded-pill font-size-14 font-weight-bold text-decoration-none d-flex align-items-center gap-1 transition-all ${
+                      pathname.startsWith("/services") || pathname.includes("-services") ? "text-primary bg-primary bg-opacity-10" : "text-secondary hover-dark"
+                    }`}
+                    style={{ color: pathname.startsWith("/services") ? "#0066FF" : "#1E293B" }}
+                  >
+                    <span>Services</span>
+                    <svg
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      style={{
+                        transition: "transform 0.2s ease",
+                        transform: activeDropdown === "services" ? "rotate(180deg)" : "rotate(0deg)",
+                      }}
+                    >
+                      <path d="M1 1L5 5L9 1" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </Link>
+
+                  {/* Services Mega Menu */}
+                  {activeDropdown === "services" && (
+                    <div
+                      className="position-absolute start-0 top-100 pt-2"
+                      style={{ zIndex: 1050, width: "720px", marginLeft: "-100px" }}
+                    >
+                      <div
+                        className="p-4 rounded-4 shadow-lg border"
+                        style={{
+                          background: "#FFFFFF",
+                          borderColor: "#E2E8F0",
+                          boxShadow: "0 25px 60px rgba(15, 23, 42, 0.12), 0 0 30px rgba(0, 102, 255, 0.05)",
+                        }}
+                      >
+                        <div className="d-flex align-items-center justify-content-between pb-3 mb-3 border-bottom border-light">
+                          <span className="font-monospace text-uppercase font-size-11 font-weight-bold" style={{ color: "#0066FF", letterSpacing: "1px" }}>
+                            OUR CORE STUDIO AUTOMATION SERVICES
+                          </span>
+                          <span className="font-size-12 text-secondary">
+                            USA Studio Growth &amp; Tech Systems
+                          </span>
+                        </div>
+
+                        <div className="row g-2">
+                          {mainServices.map((srv) => (
+                            <div key={srv.id} className="col-6">
+                              <Link
+                                href={`/${srv.slug}`}
+                                onClick={closeAll}
+                                className="p-2 rounded-3 text-decoration-none d-flex align-items-start gap-2 sg_dropdown_service_item"
+                                style={{ borderRadius: "10px" }}
+                              >
+                                <IconContainer size={32} bg="rgba(0, 102, 255, 0.08)" border="1px solid rgba(0, 102, 255, 0.2)" radius="8px" className="mt-1 flex-shrink-0">
+                                  {getServiceVectorIcon(srv.slug, 16, "#0066FF")}
+                                </IconContainer>
+                                <div>
+                                  <div className="text-dark font-size-13 font-weight-bold">
+                                    {srv.title}
+                                  </div>
+                                  <div className="text-secondary font-size-11 text-truncate" style={{ maxWidth: "230px" }}>
+                                    {srv.tagline}
+                                  </div>
+                                </div>
+                              </Link>
+                            </div>
+                          ))}
+                        </div>
+
+                        <div className="pt-3 mt-3 border-top border-light d-flex align-items-center justify-content-between">
+                          <span className="font-size-12 text-secondary">
+                            Built for GoHighLevel, n8n, Stripe, and Meta/Google Ads
+                          </span>
+                          <Link
+                            href="/services"
+                            onClick={closeAll}
+                            className="text-primary font-size-12 font-weight-bold text-decoration-none"
+                            style={{ color: "#0066FF" }}
+                          >
+                            Explore All 7 Services →
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
-                {/* Desktop Toolbox 4-bar Toggle */}
-                <div className="cs_toolbox d-none d-xl-flex">
-                  <button
-                    type="button"
-                    className="cs_icon_btn"
-                    onClick={toggleSideDrawer}
-                    aria-label={sideDrawerOpen ? "Close studio menu" : "Open studio menu"}
-                    aria-expanded={sideDrawerOpen}
-                    aria-controls="desktop-navigation"
-                  >
-                    <span className="cs_icon_btn_in">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </span>
-                  </button>
-                </div>
-
-                {/* Mobile / Tablet Right Cluster: Quick CTA + Modern Hamburger */}
-                <div className="d-flex d-xl-none align-items-center gap-2">
+                {/* Industries Dropdown ("Who We Help") */}
+                <div
+                  className="position-relative"
+                  onMouseEnter={() => setActiveDropdown("industries")}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
                   <Link
-                    href="/contact"
-                    className="cs_mobile_quick_book_btn d-none d-md-inline-flex"
-                    onClick={closeAll}
+                    href="/industries-we-serve"
+                    className={`px-3 py-2 rounded-pill font-size-14 font-weight-bold text-decoration-none d-flex align-items-center gap-1 transition-all ${
+                      pathname.includes("industries") ? "text-primary bg-primary bg-opacity-10" : "text-secondary hover-dark"
+                    }`}
+                    style={{ color: pathname.includes("industries") ? "#0066FF" : "#1E293B" }}
                   >
-                    <span>Book Studio</span>
+                    <span>Who We Help</span>
+                    <span className="badge rounded-pill bg-primary bg-opacity-10 text-primary ms-1 font-size-10 px-2 py-1" style={{ color: "#0066FF" }}>
+                      4 Verticals
+                    </span>
+                    <svg
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      style={{
+                        transition: "transform 0.2s ease",
+                        transform: activeDropdown === "industries" ? "rotate(180deg)" : "rotate(0deg)",
+                      }}
+                    >
+                      <path d="M1 1L5 5L9 1" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                   </Link>
 
-                  <button
-                    type="button"
-                    className={`cs_mobile_hamburger_btn ${mobileMenuOpen ? "active" : ""}`}
-                    onClick={toggleMobileMenu}
-                    aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-                    aria-expanded={mobileMenuOpen}
-                    aria-controls="mobile-navigation"
-                  >
-                    <span className="cs_ham_line cs_ham_line_top"></span>
-                    <span className="cs_ham_line cs_ham_line_mid"></span>
-                    <span className="cs_ham_line cs_ham_line_bot"></span>
-                  </button>
+                  {/* Industries Dropdown Menu */}
+                  {activeDropdown === "industries" && (
+                    <div
+                      className="position-absolute start-0 top-100 pt-2"
+                      style={{ zIndex: 1050, width: "480px" }}
+                    >
+                      <div
+                        className="p-3 rounded-4 shadow-lg border"
+                        style={{
+                          background: "#FFFFFF",
+                          borderColor: "#E2E8F0",
+                          boxShadow: "0 25px 60px rgba(15, 23, 42, 0.12)",
+                        }}
+                      >
+                        <div className="d-flex align-items-center justify-content-between pb-2 mb-2 border-bottom border-light">
+                          <span className="font-monospace text-uppercase font-size-11 font-weight-bold" style={{ color: "#0066FF" }}>
+                            SPECIALIZED STUDIO VERTICALS
+                          </span>
+                        </div>
+
+                        <div className="d-flex flex-column gap-1">
+                          {industrySolutions.map((ind) => (
+                            <Link
+                              key={ind.id}
+                              href={`/${ind.slug}`}
+                              onClick={closeAll}
+                              className="p-2 rounded-3 text-decoration-none d-flex align-items-center justify-content-between sg_dropdown_service_item"
+                            >
+                              <div className="d-flex align-items-center gap-2">
+                                <IconContainer size={32} bg="rgba(0, 102, 255, 0.08)" border="1px solid rgba(0, 102, 255, 0.2)" radius="8px" className="flex-shrink-0">
+                                  {getIndustryVectorIcon(ind.slug, 16, "#0066FF")}
+                                </IconContainer>
+                                <div>
+                                  <div className="text-dark font-size-13 font-weight-bold">
+                                    {ind.name}
+                                  </div>
+                                  <div className="text-secondary font-size-11">
+                                    {ind.tagline}
+                                  </div>
+                                </div>
+                              </div>
+                              <span className="text-primary font-size-12">→</span>
+                            </Link>
+                          ))}
+                        </div>
+
+                        <div className="pt-2 mt-2 border-top border-light text-center">
+                          <Link href="/industries-we-serve" onClick={closeAll} className="font-size-12 text-primary font-weight-bold text-decoration-none">
+                            View All Industry Solutions &amp; Case Studies →
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
+
+                <Link
+                  href="/pricing"
+                  className={`px-3 py-2 rounded-pill font-size-14 font-weight-bold text-decoration-none transition-all ${
+                    pathname === "/pricing" ? "text-primary bg-primary bg-opacity-10" : "text-secondary hover-dark"
+                  }`}
+                  style={{ color: pathname === "/pricing" ? "#0066FF" : "#1E293B" }}
+                >
+                  Pricing
+                </Link>
+
+                <Link
+                  href="/about"
+                  className={`px-3 py-2 rounded-pill font-size-14 font-weight-bold text-decoration-none transition-all ${
+                    pathname === "/about" ? "text-primary bg-primary bg-opacity-10" : "text-secondary hover-dark"
+                  }`}
+                  style={{ color: pathname === "/about" ? "#0066FF" : "#1E293B" }}
+                >
+                  About Us
+                </Link>
+
+                <Link
+                  href="/contact"
+                  className={`px-3 py-2 rounded-pill font-size-14 font-weight-bold text-decoration-none transition-all ${
+                    pathname === "/contact" ? "text-primary bg-primary bg-opacity-10" : "text-secondary hover-dark"
+                  }`}
+                  style={{ color: pathname === "/contact" ? "#0066FF" : "#1E293B" }}
+                >
+                  Contact Us
+                </Link>
+              </nav>
+            </div>
+
+            {/* 3. Action CTAs */}
+            <div className="d-flex align-items-center gap-2 gap-md-3">
+              <Link
+                href="/book-consultation"
+                className="sg_btn_primary font-size-13 py-2 px-3 px-md-4 d-none d-sm-inline-flex"
+                style={{ borderRadius: "9999px" }}
+              >
+                <span>Book Free Consultation</span>
+                <span className="font-size-14">→</span>
+              </Link>
+
+              {/* Mobile Hamburger Toggle */}
+              <div className="d-flex d-xl-none align-items-center">
+                <button
+                  type="button"
+                  onClick={toggleMobileMenu}
+                  aria-label="Toggle Mobile Menu"
+                  className="btn p-2 border rounded-3 bg-light"
+                  style={{ cursor: "pointer" }}
+                >
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E293B" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Mobile Slide-out Drawer Panel */}
+      {/* Mobile Drawer Overlay */}
       <div
-        id="mobile-navigation"
-        className={`cs_mobile_menu_wrapper d-xl-none ${mobileMenuOpen ? "active" : ""}`}
-        aria-hidden={!mobileMenuOpen}
+        className={`position-fixed inset-0 bg-dark bg-opacity-50 transition-all ${
+          mobileMenuOpen ? "opacity-100 pe-auto" : "opacity-0 pe-none"
+        }`}
+        style={{ zIndex: 9998, transition: "opacity 0.3s ease" }}
+        onClick={closeAll}
+      ></div>
+
+      {/* Mobile Drawer Content */}
+      <div
+        className="position-fixed top-0 end-0 bg-white shadow-lg p-4 overflow-y-auto"
+        style={{
+          width: "min(340px, 85vw)",
+          height: "100vh",
+          zIndex: 9999,
+          transform: mobileMenuOpen ? "translateX(0)" : "translateX(100%)",
+          transition: "transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
+        }}
       >
-        <div className="cs_mobile_menu_backdrop" onClick={closeAll}></div>
-        <div className="cs_mobile_menu_panel">
-          {/* Header Bar inside Drawer */}
-          <div className="cs_mobile_menu_header d-flex align-items-center justify-content-between p-3 border-bottom border-secondary border-opacity-25">
-            <Link className="cs_site_branding" href="/" onClick={closeAll}>
-              <Image src={Logo_white} alt="StudioGrowth360" width={160} height={28} style={{ width: 'auto', height: '28px' }} priority />
-            </Link>
-            <button
-              type="button"
-              className="cs_mobile_close_btn"
-              onClick={closeAll}
-              aria-label="Close menu"
-            >
-              ✕
-            </button>
-          </div>
-
-          {/* Drawer Body */}
-          <div className="cs_mobile_menu_body p-3 d-flex flex-column justify-content-between flex-grow-1">
-            <div>
-              {/* Status Pill */}
-              <div className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-3" style={{ background: 'rgba(255, 107, 0, 0.12)', border: '1px solid rgba(255, 107, 0, 0.3)' }}>
-                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#FF6B00', boxShadow: '0 0 8px #FF6B00' }}></span>
-                <span style={{ color: '#FF6B00', fontSize: '11px', fontWeight: 800, letterSpacing: '0.6px' }}>4K BROADCAST PRODUCTION</span>
-              </div>
-
-              {/* Navigation Items */}
-              <ul className="cs_mobile_nav_list list-unstyled mb-4">
-                {menu_data.map((item, idx) => {
-                  const isActive = pathname === item.link;
-                  return (
-                    <li key={item.id} className="mb-2">
-                      <Link
-                        href={item.link}
-                        onClick={closeAll}
-                        className={`d-flex align-items-center justify-content-between py-2 px-3 rounded-3 text-decoration-none transition-all ${
-                          isActive ? "cs_mobile_nav_active" : "cs_mobile_nav_link"
-                        }`}
-                      >
-                        <div className="d-flex align-items-center gap-3">
-                          <span className="font-monospace text-secondary font-size-12">0{idx + 1}</span>
-                          <span className="font-size-16 font-weight-bold">{item.title}</span>
-                        </div>
-                        <span className="cs_mobile_nav_arrow">→</span>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-
-            {/* Bottom Actions Cluster */}
-            <div className="pt-3 border-top border-secondary border-opacity-20">
-              <Link
-                href="/contact"
-                onClick={closeAll}
-                className="cs_btn cs_style_1 cs_color_1 w-100 text-center py-3 d-flex align-items-center justify-content-center gap-2 text-decoration-none shadow"
-                style={{
-                  background: 'linear-gradient(135deg, #FFA05C 0%, #FF6B00 60%, #E65100 100%)',
-                  borderRadius: '14px',
-                  fontWeight: 700,
-                  fontSize: '15px',
-                  color: '#FFFFFF',
-                  boxShadow: '0 8px 25px rgba(255, 107, 0, 0.45)'
-                }}
-              >
-                <span>Book 4K Studio Session</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </Link>
-
-              <div className="mt-3 text-center text-secondary font-size-12">
-                <div>Studio Booking: <a href="mailto:grow@360growthlab.com" className="text-white font-weight-bold text-decoration-none">grow@360growthlab.com</a></div>
-                <div className="mt-1">Direct: <a href="tel:7737579417" className="text-white text-decoration-none">773-757-9417</a> · VIP Green Room &amp; NDA</div>
-              </div>
-            </div>
-          </div>
+        <div className="d-flex align-items-center justify-content-between mb-4 pb-2 border-bottom">
+          <Image src={LogoImg} alt="StudioGrowth360" width={170} height={30} style={{ width: 'auto', height: '26px' }} />
+          <button onClick={closeAll} className="btn border-0 font-size-20 text-secondary p-1">
+            ✕
+          </button>
         </div>
-      </div>
 
-      {/* Side Slide-out Drawer */}
-      <div
-        id="desktop-navigation"
-        className={`cs_side_header ${sideDrawerOpen ? "active" : ""}`}
-        aria-hidden={!sideDrawerOpen}
-      >
-        <button className="cs_close" onClick={closeAll} aria-label="Close drawer"></button>
-        <div className="cs_side_header_overlay" onClick={closeAll}></div>
-        <div className="cs_side_header_in">
-          <Link className="cs_site_branding" href="/" onClick={closeAll}>
-            <Image src={Logo_white} alt="StudioGrowth360" />
+        <div className="d-flex flex-column gap-2 mb-4">
+          <Link href="/" onClick={closeAll} className="text-dark font-size-15 font-weight-bold py-2 text-decoration-none">
+            Home
           </Link>
-          <div className="row align-items-end mt-4">
-            <div className="col-12 col-md-7">
-              <div className="cs_box_one">
-                <div className="cs_nav_black_section cs_font_changes">
-                  <ul>
-                    {menu_data.map((item) => (
-                      <li key={item.id} className="menu-item-has-black-section cs_style_1">
-                        <Link href={item.link} onClick={closeAll}>
-                          {item.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+
+          {/* Mobile Services Accordion */}
+          <div className="py-2 border-top">
+            <div className="font-size-14 font-weight-bold mb-2" style={{ color: "#0066FF" }}>
+              Our Services (7)
             </div>
-            <div className="col-12 col-md-5 mt-4 mt-md-0">
-              <div className="cs_box_two">
-                <div>
-                  <p className="d-flex align-items-center mb-3">
-                    <svg width="14" height="18" viewBox="0 0 14 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7 0.0195312C3.14027 0.0195312 0 3.01027 0 6.68621C0 7.78973 0.289693 8.88387 0.840408 9.85434L6.6172 17.8047C6.69411 17.9373 6.84065 18.0195 7 18.0195C7.15935 18.0195 7.30589 17.9373 7.3828 17.8047L13.1617 9.85105C13.7103 8.88387 14 7.78969 14 6.68617C14 3.01027 10.8597 0.0195312 7 0.0195312ZM7 10.0195C5.07014 10.0195 3.50002 8.52418 3.50002 6.68621C3.50002 4.84824 5.07014 3.35289 7 3.35289C8.92986 3.35289 10.5 4.84824 10.5 6.68621C10.5 8.52418 8.92986 10.0195 7 10.0195Z" fill="#FF6B00"/>
-                    </svg>
-                    <span className="ms-2 cs_white_color font-weight-bold">StudioGrowth360 Headquarters</span>
-                  </p>
-                  <p className="cs_ternary_color mb-3 font-size-14">
-                    <a
-                      href="https://www.google.com/maps/search/?api=1&query=1S280+Summit+Ave+Unit+E2+Suite+1B,+Oakbrook+Terrace,+IL+60181"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-secondary text-decoration-none hover-white"
-                    >
-                      1S280 Summit Ave Unit E2 Suite 1B, Oakbrook Terrace, IL 60181
-                    </a>
-                    <br />
-                    <a href="mailto:grow@360growthlab.com" className="text-secondary text-decoration-none hover-white">
-                      grow@360growthlab.com
-                    </a>
-                  </p>
-
-                  <h4 className="cs_phone_number mb-3">
-                    <a href="tel:7737579417" className="cs_white_color text-decoration-none">
-                      <span className="text-white">773-757-9417</span>
-                    </a>
-                  </h4>
-
-                  <hr className="mt-2 mb-3 border-secondary" />
-                  <div>
-                    <Link href="/contact" onClick={closeAll} className="cs_btn cs_style_1 cs_color_1 w-100 text-center">
-                      <span>Schedule Discovery Call</span>
-                    </Link>
-                  </div>
-                </div>
-              </div>
+            <div className="d-flex flex-column gap-2 ps-2 border-start ms-1">
+              {mainServices.map((srv) => (
+                <Link
+                  key={srv.id}
+                  href={`/${srv.slug}`}
+                  onClick={closeAll}
+                  className="text-secondary font-size-13 text-decoration-none d-flex align-items-center gap-2 py-1"
+                >
+                  <IconContainer size={26} bg="rgba(0, 102, 255, 0.08)" border="1px solid rgba(0, 102, 255, 0.15)" radius="6px">
+                    {getServiceVectorIcon(srv.slug, 14)}
+                  </IconContainer>
+                  <span className="text-dark font-weight-bold">{srv.title}</span>
+                </Link>
+              ))}
             </div>
           </div>
+
+          {/* Mobile Industries Accordion */}
+          <div className="py-2 border-top">
+            <div className="font-size-14 font-weight-bold mb-2" style={{ color: "#0066FF" }}>
+              Who We Help (4 Verticals)
+            </div>
+            <div className="d-flex flex-column gap-2 ps-2 border-start ms-1">
+              {industrySolutions.map((ind) => (
+                <Link
+                  key={ind.id}
+                  href={`/${ind.slug}`}
+                  onClick={closeAll}
+                  className="text-secondary font-size-13 text-decoration-none d-flex align-items-center gap-2 py-1"
+                >
+                  <IconContainer size={26} bg="rgba(0, 102, 255, 0.08)" border="1px solid rgba(0, 102, 255, 0.15)" radius="6px">
+                    {getIndustryVectorIcon(ind.slug, 14)}
+                  </IconContainer>
+                  <span className="text-dark font-weight-bold">{ind.name}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <Link href="/pricing" onClick={closeAll} className="text-dark font-size-15 font-weight-bold py-2 text-decoration-none border-top">
+            Pricing
+          </Link>
+          <Link href="/about" onClick={closeAll} className="text-dark font-size-15 font-weight-bold py-2 text-decoration-none border-top">
+            About Us
+          </Link>
+          <Link href="/contact" onClick={closeAll} className="text-dark font-size-15 font-weight-bold py-2 text-decoration-none border-top">
+            Contact Us
+          </Link>
+        </div>
+
+        <div className="pt-3 border-top">
+          <Link
+            href="/book-consultation"
+            onClick={closeAll}
+            className="sg_btn_primary w-100 justify-content-center text-center font-size-14 py-3"
+          >
+            <span>Book Free Strategy Call</span>
+            <span>→</span>
+          </Link>
         </div>
       </div>
     </>
