@@ -9,9 +9,10 @@ const ContactArea = () => {
     name: "",
     email: "",
     phone: "",
-    company: "",
-    service: "Multi-Cam 4K Studio Session",
-    budget: "$2,500 – $5,000 / month",
+    studioName: "",
+    city: "",
+    suites: "2 Suites",
+    interest: "Studio Management OS Walkthrough",
     message: "",
   });
 
@@ -26,20 +27,20 @@ const ContactArea = () => {
     event.preventDefault();
 
     const targetEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "grow@360growthlab.com";
-    const subject = `[Project Inquiry] ${formData.service} - ${formData.company || formData.name}`;
+    const subject = `[Platform Demo Request] ${formData.interest} - ${formData.studioName || formData.name}`;
     const body = [
-      `Client Name: ${formData.name}`,
-      `Email Address: ${formData.email}`,
+      `Studio Operator: ${formData.name}`,
+      `Work Email: ${formData.email}`,
       `Phone/WhatsApp: ${formData.phone || "Not provided"}`,
-      `Company / Project: ${formData.company || "Not provided"}`,
-      `Service Category: ${formData.service}`,
-      `Estimated Budget: ${formData.budget}`,
+      `Studio Facility: ${formData.studioName || "Not provided"}`,
+      `Facility Location: ${formData.city || "Not provided"}`,
+      `Suites Count: ${formData.suites}`,
+      `Platform Interest: ${formData.interest}`,
       "",
-      "Project Details & Goals:",
+      "Studio Background & Inquiries:",
       formData.message,
     ].join("\n");
 
-    // Open mailto link seamlessly
     const mailtoUrl = `mailto:${targetEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoUrl;
 
@@ -49,18 +50,21 @@ const ContactArea = () => {
   return (
     <>
       <div className="cs_height_180 cs_height_lg_100"></div>
-      <section className="cs_contact_section">
+      <section className="cs_contact_section py-4">
         <div className="container">
           <div className="cs_section_heading cs_style_1 mb-5">
             <div className="cs_section_heading_text">
-              <div className="cs_section_subtitle mb-2" style={{ color: '#FF6B00' }}>
-                Contact Us
+              <div className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-2" style={{ background: 'rgba(255, 107, 0, 0.1)', border: '1px solid rgba(255, 107, 0, 0.3)' }}>
+                <span style={{ color: '#FF6B00', fontSize: '10px' }}>✦</span>
+                <span style={{ color: '#FF6B00', fontSize: '12px', fontWeight: 700, letterSpacing: '1px' }} className="text-uppercase">
+                  PLATFORM CONCIERGE &amp; ENTERPRISE DEMOS
+                </span>
               </div>
-              <h1 className="cs_contact_title anim_text_writting" style={{ fontSize: 'clamp(32px, 4.5vw, 56px)' }}>
-                Contact Us &amp; Book Studio Time
+              <h1 className="cs_contact_title anim_text_writting text-white font-weight-bold" style={{ fontSize: 'clamp(32px, 4.5vw, 52px)' }}>
+                Scale Your Facility with Growth Domains
               </h1>
-              <p className="text-secondary font-size-18 mt-3" style={{ maxWidth: '720px', lineHeight: '1.7' }}>
-                Whether booking a single 4K recording session, scheduling a private studio tour, or producing an entire season with viral shorts, our production team is ready.
+              <p className="text-secondary font-size-17 mt-3" style={{ maxWidth: '720px', lineHeight: '1.7' }}>
+                Schedule a 1-on-1 platform walkthrough with a former studio operator. Explore how our multi-suite scheduling, 24-hour wholesale post-production, and rate card yield algorithms can be tailored to your space.
               </p>
             </div>
           </div>
@@ -76,16 +80,16 @@ const ContactArea = () => {
                     </div>
                     <h3 className="text-white font-size-26 font-weight-bold mb-2">Thank You, {formData.name}!</h3>
                     <p className="text-secondary font-size-16 mb-4" style={{ maxWidth: '480px', margin: '0 auto' }}>
-                      Your inquiry has been compiled and dispatched. A senior partner from StudioGrowth360 will review your project specs and respond within 24 hours.
+                      Your demo inquiry has been dispatched to our Studio Success team. We will review your facility profile and reach out within 24 business hours.
                     </p>
                     <button
                       type="button"
                       onClick={() => setSubmitted(false)}
                       className="sg_primary_cta mt-3"
                     >
-                      <span>Send Another Note</span>
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <span>Submit Another Inquiry</span>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19"/>
                       </svg>
                     </button>
                   </div>
@@ -104,7 +108,7 @@ const ContactArea = () => {
                           name="name"
                           value={formData.name}
                           onChange={handleChange}
-                          placeholder="e.g. Alexander Vance"
+                          placeholder="e.g. Elena Rostova"
                           required
                         />
                       </div>
@@ -120,7 +124,7 @@ const ContactArea = () => {
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
-                          placeholder="e.g. alex@company.com"
+                          placeholder="e.g. operator@studiovault.com"
                           required
                         />
                       </div>
@@ -128,178 +132,184 @@ const ContactArea = () => {
 
                     <div className="row g-3 mb-3">
                       <div className="col-12 col-md-6">
-                        <label htmlFor="contact-company" className="text-white font-size-14 mb-1 font-weight-bold">
-                          Company / Venture Name
+                        <label htmlFor="contact-studio" className="text-white font-size-14 mb-1 font-weight-bold">
+                          Studio Facility Name <span style={{ color: '#FF6B00' }}>*</span>
                         </label>
                         <input
                           className="form-control bg-dark text-white border-secondary p-3"
                           style={{ borderRadius: '8px' }}
                           type="text"
-                          id="contact-company"
-                          name="company"
-                          value={formData.company}
+                          id="contact-studio"
+                          name="studioName"
+                          value={formData.studioName}
                           onChange={handleChange}
-                          placeholder="e.g. Apex Global Inc."
+                          placeholder="e.g. Soho Audio Laboratories"
+                          required
                         />
                       </div>
                       <div className="col-12 col-md-6">
-                        <label htmlFor="contact-phone" className="text-white font-size-14 mb-1 font-weight-bold">
-                          Phone / WhatsApp (Optional)
+                        <label htmlFor="contact-city" className="text-white font-size-14 mb-1 font-weight-bold">
+                          City &amp; State / Country
                         </label>
                         <input
                           className="form-control bg-dark text-white border-secondary p-3"
                           style={{ borderRadius: '8px' }}
                           type="text"
-                          id="contact-phone"
-                          name="phone"
-                          value={formData.phone}
+                          id="contact-city"
+                          name="city"
+                          value={formData.city}
                           onChange={handleChange}
-                          placeholder="773-757-9417"
+                          placeholder="e.g. Chicago, IL"
                         />
                       </div>
                     </div>
 
                     <div className="row g-3 mb-3">
                       <div className="col-12 col-md-6">
-                        <label htmlFor="contact-service" className="text-white font-size-14 mb-1 font-weight-bold">
-                          Primary Service Interest
+                        <label htmlFor="contact-suites" className="text-white font-size-14 mb-1 font-weight-bold">
+                          Number of Recording Suites
                         </label>
                         <select
                           className="form-select bg-dark text-white border-secondary p-3"
                           style={{ borderRadius: '8px' }}
-                          id="contact-service"
-                          name="service"
-                          value={formData.service}
+                          id="contact-suites"
+                          name="suites"
+                          value={formData.suites}
                           onChange={handleChange}
                         >
-                          <option>Multi-Cam 4K Studio Session</option>
-                          <option>Full Episode Post-Production &amp; Sound Design</option>
-                          <option>Viral Shorts &amp; TikTok Retainer</option>
-                          <option>Show Launch &amp; RSS Syndication</option>
-                          <option>Remote Guest Recording Concierge</option>
-                          <option>Corporate &amp; Executive Branded Show</option>
-                          <option>Private In-Person Studio Tour</option>
+                          <option>1 Suite (Boutique Pod Studio)</option>
+                          <option>2 Suites (Dual Video &amp; Vocal)</option>
+                          <option>3 – 5 Suites (Multi-Room Production)</option>
+                          <option>6+ Suites / Multi-Location Franchise</option>
+                          <option>Planning New Studio Buildout</option>
                         </select>
                       </div>
+
                       <div className="col-12 col-md-6">
-                        <label htmlFor="contact-budget" className="text-white font-size-14 mb-1 font-weight-bold">
-                          Target Investment Range
+                        <label htmlFor="contact-interest" className="text-white font-size-14 mb-1 font-weight-bold">
+                          Primary Area of Interest
                         </label>
                         <select
                           className="form-select bg-dark text-white border-secondary p-3"
                           style={{ borderRadius: '8px' }}
-                          id="contact-budget"
-                          name="budget"
-                          value={formData.budget}
+                          id="contact-interest"
+                          name="interest"
+                          value={formData.interest}
                           onChange={handleChange}
                         >
-                          <option>$500 – $1,500 (Single Studio Session)</option>
-                          <option>$2,500 – $5,000 / month (Weekly Show Package)</option>
-                          <option>$5,000 – $10,000 / month (Production &amp; Shorts Retainer)</option>
-                          <option>$10,000+ / month (Enterprise &amp; Multi-Show Network)</option>
-                          <option>Custom Scope / Studio Tour</option>
+                          <option>Studio Management OS Walkthrough</option>
+                          <option>Wholesale 24h Post-Production Partnership</option>
+                          <option>Multi-Location Enterprise Tier</option>
+                          <option>Local Google Pack &amp; Client Acquisition</option>
+                          <option>Acoustic STC Audit &amp; Certification</option>
+                          <option>Hardware / Software Partner Integration</option>
                         </select>
                       </div>
                     </div>
 
                     <div className="mb-4">
                       <label htmlFor="contact-message" className="text-white font-size-14 mb-1 font-weight-bold">
-                        Show Concept, Goals &amp; Preferred Studio Date <span style={{ color: '#FF6B00' }}>*</span>
+                        Facility Background &amp; Current Bottlenecks
                       </label>
                       <textarea
                         className="form-control bg-dark text-white border-secondary p-3"
-                        style={{ borderRadius: '8px', minHeight: '140px' }}
+                        style={{ borderRadius: '8px', minHeight: '120px' }}
                         id="contact-message"
                         name="message"
+                        rows={4}
                         value={formData.message}
                         onChange={handleChange}
-                        placeholder="Share your goals, current bottlenecks, target launch timeline, and what success looks like..."
-                        required
+                        placeholder="Tell us about your current studio setup, booking software, weekday utilization rate, or wholesale post-production needs..."
                       />
                     </div>
 
-                    <button type="submit" className="sg_submit_brief_btn w-100">
-                      <span>Submit Project Brief</span>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
+                    <button
+                      type="submit"
+                      className="sg_primary_cta w-100 justify-content-center py-3"
+                      style={{ border: 'none' }}
+                    >
+                      <span>Request Platform Walkthrough</span>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19"/>
                       </svg>
                     </button>
-                    <p className="text-secondary font-size-12 text-center mt-3 mb-0">
-                      🔒 All project inquiries are protected under mutual non-disclosure.
-                    </p>
                   </form>
                 )}
               </div>
             </div>
 
-            {/* Info Column */}
+            {/* Direct Information Column */}
             <div className="col-12 col-lg-5">
-              <div className="p-4 p-md-5 rounded-4 h-100 d-flex flex-column justify-content-between" style={{ background: 'linear-gradient(135deg, rgba(255,107,0,0.06) 0%, rgba(13,13,13,0.95) 100%)', border: '1px solid rgba(255, 107, 0, 0.2)' }}>
+              <div className="p-4 p-md-5 rounded-4 h-100 d-flex flex-column justify-content-between" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
                 <div>
-                  <span className="badge rounded-pill mb-3" style={{ backgroundColor: 'rgba(255,107,0,0.15)', color: '#FF6B00', padding: '6px 14px' }}>
-                    Direct Access to Principals
-                  </span>
-                  <h2 className="text-white font-size-28 font-weight-bold mb-3">
-                    Let&apos;s Build Something Unforgettable.
-                  </h2>
-                  <p className="text-secondary font-size-16 mb-4" style={{ lineHeight: '1.7' }}>
-                    We partner with select visionary brands each quarter to maintain intense focus, flawless quality, and outsized business impact.
+                  <h3 className="text-white font-size-22 font-weight-bold mb-3">
+                    Studio Platform Support &amp; Concierge
+                  </h3>
+                  <p className="text-secondary font-size-14 mb-4" style={{ lineHeight: '1.6' }}>
+                    Need immediate onboarding assistance, wholesale SLA dispatch status, or custom API integration support? Our team is available 24/7.
                   </p>
 
-                  <div className="cs_contact_info_box mb-4">
-                    <div className="d-flex align-items-start gap-3 mb-3">
-                      <span style={{ color: '#FF6B00', fontSize: '20px' }}>✉</span>
+                  <div className="d-flex flex-column gap-3 mb-4">
+                    <div className="d-flex align-items-start gap-3">
+                      <span className="p-2 rounded-3 text-white" style={{ background: 'rgba(255, 107, 0, 0.1)', color: '#FF6B00' }}>
+                        ✉
+                      </span>
                       <div>
-                        <h4 className="text-white font-size-14 font-weight-bold mb-1">Email Inquiries</h4>
-                        <a href="mailto:grow@360growthlab.com" className="text-secondary text-decoration-none hover-white">
+                        <div className="text-secondary font-size-11 text-uppercase">Direct Operator Concierge</div>
+                        <a href="mailto:grow@360growthlab.com" className="text-white font-weight-bold font-size-14 text-decoration-none hover-orange">
                           grow@360growthlab.com
                         </a>
                       </div>
                     </div>
 
-                    <div className="d-flex align-items-start gap-3 mb-3">
-                      <span style={{ color: '#FF6B00', fontSize: '20px' }}>📞</span>
+                    <div className="d-flex align-items-start gap-3">
+                      <span className="p-2 rounded-3 text-white" style={{ background: 'rgba(255, 107, 0, 0.1)', color: '#FF6B00' }}>
+                        📞
+                      </span>
                       <div>
-                        <h4 className="text-white font-size-14 font-weight-bold mb-1">Direct Phone</h4>
-                        <a href="tel:7737579417" className="text-secondary text-decoration-none hover-white">
+                        <div className="text-secondary font-size-11 text-uppercase">Platform Hotline</div>
+                        <a href="tel:7737579417" className="text-white font-weight-bold font-size-14 text-decoration-none hover-orange">
                           773-757-9417
                         </a>
                       </div>
                     </div>
 
-                    <div className="d-flex align-items-start gap-3 mb-3">
-                      <span style={{ color: '#FF6B00', fontSize: '20px' }}>📍</span>
+                    <div className="d-flex align-items-start gap-3">
+                      <span className="p-2 rounded-3 text-white" style={{ background: 'rgba(255, 107, 0, 0.1)', color: '#FF6B00' }}>
+                        📍
+                      </span>
                       <div>
-                        <h4 className="text-white font-size-14 font-weight-bold mb-1">Studio Headquarters</h4>
-                        <a
-                          href="https://www.google.com/maps/search/?api=1&query=1S280+Summit+Ave+Unit+E2+Suite+1B,+Oakbrook+Terrace,+IL+60181"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-secondary text-decoration-none hover-white font-size-14 d-block"
-                          style={{ lineHeight: '1.6' }}
-                        >
+                        <div className="text-secondary font-size-11 text-uppercase">Platform Headquarters</div>
+                        <div className="text-white font-size-13">
                           1S280 Summit Ave Unit E2 Suite 1B, Oakbrook Terrace, IL 60181
-                        </a>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="p-3 rounded-3 mt-4" style={{ background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                  <div className="d-flex align-items-center gap-2 mb-1">
-                    <span className="badge bg-success rounded-circle" style={{ width: '8px', height: '8px', padding: 0 }}></span>
-                    <span className="text-white font-size-13 font-weight-bold">Current Availability: Q1 / Q2 2026</span>
+                <div className="pt-4 border-top border-secondary border-opacity-10">
+                  <div className="text-white font-size-13 font-weight-bold mb-2">Instant Self-Serve Shortcuts:</div>
+                  <div className="d-flex flex-column gap-2">
+                    <Link href="/onboard" className="text-secondary font-size-13 hover-white text-decoration-none d-flex align-items-center justify-content-between">
+                      <span>4-Step Studio Onboarding Wizard</span>
+                      <span style={{ color: '#FF6B00' }}>→</span>
+                    </Link>
+                    <Link href="/dashboard" className="text-secondary font-size-13 hover-white text-decoration-none d-flex align-items-center justify-content-between">
+                      <span>Interactive Studio OS Portal</span>
+                      <span style={{ color: '#FF6B00' }}>→</span>
+                    </Link>
+                    <Link href="/tools" className="text-secondary font-size-13 hover-white text-decoration-none d-flex align-items-center justify-content-between">
+                      <span>Rate Card &amp; Yield Modeler</span>
+                      <span style={{ color: '#FF6B00' }}>→</span>
+                    </Link>
                   </div>
-                  <p className="text-secondary font-size-12 mb-0">
-                    Currently accepting 2 new client partnerships for strategic branding and Next.js engineering sprints.
-                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <div className="cs_height_120 cs_height_lg_60"></div>
     </>
   );
 };

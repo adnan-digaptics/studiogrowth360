@@ -1,41 +1,43 @@
 import "../styles/index.scss";
+import "../styles/agency.scss";
 import type { Metadata } from "next";
+import { StudioPlatformProvider } from "@/context/StudioPlatformContext";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://studiogrowth360.com";
 const siteBaseUrl = `${siteUrl.replace(/\/+$/, "")}/`;
-const heroImageUrl = new URL("assets/img/podcast/wj/podcast_banner.webp", siteBaseUrl).toString();
+const logoUrl = new URL("assets/img/studiogrowth360-logo.svg", siteBaseUrl).toString();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteBaseUrl),
   title: {
-    default: "Studio360 | Premier 4K Podcast Recording Studio & Media Network",
-    template: "%s | Studio360",
+    default: "StudioGrowth360 | Automate. Grow. Scale. — CRM & Business Automation for Studios",
+    template: "%s | StudioGrowth360",
   },
   description:
-    "Studio360 is a premier luxury podcast recording studio and full-service media production network. 4K Sony cinema multi-cam recording, Shure SM7B broadcast audio, viral shorts retention engine, and global syndication.",
-  applicationName: "Studio360",
+    "StudioGrowth360 provides CRM solutions, business automation, AI automation, lead generation, and digital growth services to photography, podcast, yoga, and craft studios across the United States.",
+  applicationName: "StudioGrowth360",
   icons: {
     icon: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/icon.svg`,
   },
   openGraph: {
     type: "website",
-    siteName: "Studio360",
-    title: "Studio360 | Premier 4K Podcast Recording Studio & Media Network",
+    siteName: "StudioGrowth360",
+    title: "StudioGrowth360 | Automate. Grow. Scale.",
     description:
-      "Premier luxury podcast recording studio and turnkey production network. 4K multi-cam capture, broadcast audio engineering, viral shorts, and global syndication.",
+      "Your All-in-One Studio Growth, CRM & Automation Partner for Photography, Podcast, Yoga, and Craft Studios across the USA.",
     images: [
       {
-        url: heroImageUrl,
-        alt: "Studio360 Premier 4K Podcast Recording Suite",
+        url: new URL("assets/img/podcast/wj/podcast_banner.webp", siteBaseUrl).toString(),
+        alt: "StudioGrowth360 Studio Automation Agency",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Studio360 | Premier 4K Podcast Recording Studio & Media Network",
+    title: "StudioGrowth360 | Automate. Grow. Scale.",
     description:
-      "Premier luxury podcast recording studio and turnkey production network. 4K multi-cam capture, broadcast audio engineering, viral shorts, and global syndication.",
-    images: [heroImageUrl],
+      "Your All-in-One Studio Growth, CRM & Automation Partner for Photography, Podcast, Yoga, and Craft Studios across the USA.",
+    images: [new URL("assets/img/podcast/wj/podcast_banner.webp", siteBaseUrl).toString()],
   },
 };
 
@@ -46,21 +48,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="dark" suppressHydrationWarning={true}>
-        {children}
+      <body className="sg_agency_body" suppressHydrationWarning>
+        <StudioPlatformProvider>{children}</StudioPlatformProvider>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Studio360",
+              "@type": "ProfessionalService",
+              name: "StudioGrowth360",
               url: siteUrl,
-              logo: new URL("assets/img/studiogrowth360-logo.svg", siteBaseUrl).toString(),
+              logo: logoUrl,
               description:
-                "Premier luxury 4K podcast recording studio and full-service media production network offering acoustically tuned suites, multi-cam live switching, viral shorts clipping, and global RSS syndication.",
-              telephone: "+1-773-757-9417",
-              email: "grow@360growthlab.com",
+                "Digital growth and automation agency providing GoHighLevel CRM, n8n automation, AI receptionists, and lead generation to US studios.",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "1S280 Summit Ave Unit E2 Suite 1B",
@@ -69,12 +69,7 @@ export default function RootLayout({
                 postalCode: "60181",
                 addressCountry: "US",
               },
-              sameAs: [
-                "https://www.linkedin.com",
-                "https://dribbble.com",
-                "https://twitter.com",
-                "https://github.com",
-              ],
+              telephone: "+1-773-757-9417",
             }),
           }}
         />

@@ -8,6 +8,7 @@ import ScrollToTop from "@/components/common/ScrollToTop";
 
 import { usePathname } from "next/navigation";
 import { animationCreate } from "@/utils/utils";
+import { StudioPlatformProvider } from "@/context/StudioPlatformContext";
 
 import animationTitle from "@/utils/animationTitle";
 import buttonAnimation from "@/utils/buttonAnimation";
@@ -108,11 +109,11 @@ const Wrapper = ({ children }: { children: React.ReactNode }) => {
   }, [pathname]);
 
   return (
-    <>
+    <StudioPlatformProvider>
       {children}
       <MouseMove />
       <ScrollToTop />
-    </>
+    </StudioPlatformProvider>
   );
 };
 

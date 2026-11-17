@@ -1,0 +1,18 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gd_icon_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF8A33" />
+      <stop offset="100%" stop-color="#FF5500" />
+    </linearGradient>
+    <linearGradient id="gd_icon_bg_box" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1E28" />
+      <stop offset="100%" stop-color="#0E0E14" />
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="14" fill="url(#gd_icon_bg_box)" stroke="rgba(255, 107, 0, 0.4)" stroke-width="2" />
+  <circle cx="24" cy="24" r="16" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="2" stroke-dasharray="6 4" />
+  <circle cx="24" cy="24" r="11" stroke="url(#gd_icon_grad)" stroke-width="2.2" />
+  <path d="M19 29L29 19M29 19H21M29 19V27" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="34" cy="14" r="3" fill="#FF5500" />
+</svg>
+
