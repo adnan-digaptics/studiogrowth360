@@ -47,10 +47,10 @@ const AgencyCtaSection = () => {
           </p>
 
           {/* Dual CTAs */}
-          <div className="d-flex flex-wrap justify-content-center align-items-center gap-3 mb-5">
+          <div className="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-3 mb-5">
             <Link
               href="/book-consultation"
-              className="sg_btn_primary font-size-16 py-3 px-4 shadow-lg"
+              className="sg_btn_primary font-size-16 py-3 px-4 shadow-lg w-100 w-sm-auto justify-content-center text-center"
               style={{ background: '#0066FF', borderColor: '#0066FF', color: '#FFFFFF' }}
             >
               <span>Book a Free Strategy Call →</span>
@@ -58,7 +58,7 @@ const AgencyCtaSection = () => {
 
             <Link
               href="/pricing"
-              className="px-4 py-3 rounded-pill font-size-16 font-weight-bold text-white text-decoration-none border transition-all"
+              className="px-4 py-3 rounded-pill font-size-16 font-weight-bold text-white text-decoration-none border transition-all w-100 w-sm-auto justify-content-center text-center"
               style={{ background: 'rgba(255, 255, 255, 0.08)', borderColor: 'rgba(255, 255, 255, 0.2)' }}
             >
               <span>View Packages &amp; Pricing</span>

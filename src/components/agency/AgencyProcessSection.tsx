@@ -106,26 +106,32 @@ const AgencyProcessSection = () => {
 
         {/* Action Banner */}
         <div
-          className="p-4 p-xl-5 rounded-4 border bg-light d-flex flex-column flex-lg-row align-items-center justify-content-between gap-4 shadow-sm"
+          className="p-4 p-xl-5 rounded-4 border bg-light shadow-sm"
           style={{ borderColor: '#E2E8F0' }}
         >
-          <div className="d-flex align-items-center gap-3">
-            <IconContainer size={48} bg="rgba(0, 102, 255, 0.1)" border="1px solid rgba(0, 102, 255, 0.25)" radius="12px">
-              <IconSparkles size={24} color="#0066FF" />
-            </IconContainer>
-            <div>
-              <div className="text-dark font-weight-bold font-size-16 mb-1">
-                Ready to begin Step 1 with a free Discovery &amp; Studio Tech Audit?
-              </div>
-              <div className="text-secondary font-size-13">
-                We&apos;ll inspect your current booking pipeline and pinpoint your highest-ROI automation opportunities within 30 minutes.
+          <div className="row align-items-center g-3 g-lg-4">
+            <div className="col-12 col-lg-8">
+              <div className="d-flex align-items-center gap-3">
+                <IconContainer size={48} bg="rgba(0, 102, 255, 0.1)" border="1px solid rgba(0, 102, 255, 0.25)" radius="12px" className="flex-shrink-0">
+                  <IconSparkles size={24} color="#0066FF" />
+                </IconContainer>
+                <div>
+                  <div className="text-dark font-weight-bold font-size-16 mb-1">
+                    Ready to begin Step 1 with a free Discovery &amp; Studio Tech Audit?
+                  </div>
+                  <div className="text-secondary font-size-13" style={{ lineHeight: '1.6' }}>
+                    We&apos;ll inspect your current booking pipeline and pinpoint your highest-ROI automation opportunities within 30 minutes.
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <Link href="/book-consultation" className="sg_btn_primary font-size-14 py-3 px-4 flex-shrink-0">
-            <span>Book Your Free Studio Audit →</span>
-          </Link>
+            <div className="col-12 col-lg-4 text-start text-lg-end">
+              <Link href="/book-consultation" className="sg_btn_primary font-size-14 py-3 px-4 d-inline-flex">
+                <span>Book Your Free Studio Audit →</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </section>

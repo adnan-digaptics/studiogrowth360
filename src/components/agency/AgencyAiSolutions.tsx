@@ -56,7 +56,7 @@ const AgencyAiSolutions = () => {
 
         <div className="row g-4 align-items-stretch mb-5">
           {aiCapabilities.map((ai, idx) => (
-            <div key={idx} className="col-12 col-md-6 col-lg-3">
+            <div key={idx} className="col-12 col-md-6 col-xl-3">
               <div
                 className="p-4 rounded-4 h-100 d-flex flex-column justify-content-between"
                 style={{
@@ -146,7 +146,7 @@ const AgencyAiSolutions = () => {
         </div>
 
         <div className="text-center">
-          <Link href="/ai-automation" className="sg_btn_primary font-size-14 py-3 px-5 shadow-lg">
+          <Link href="/ai-automation" className="sg_btn_primary font-size-14 py-3 px-4 px-sm-5 shadow-lg w-100 w-sm-auto justify-content-center text-center">
             <span>Explore AI Voice &amp; Chatbot Automations →</span>
           </Link>
         </div>

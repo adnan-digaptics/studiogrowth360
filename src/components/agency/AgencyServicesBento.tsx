@@ -127,7 +127,7 @@ const AgencyServicesBento = () => {
           {/* Card 1: Lead Generation (Wide Horizontal Split Flagship) */}
           <div className="col-12 col-xl-7">
             <div
-              className="rounded-4 h-100 bg-white border p-4 p-xl-5 d-flex flex-column justify-content-between position-relative overflow-hidden"
+              className="rounded-4 h-100 bg-white border p-3 p-sm-4 p-xl-5 d-flex flex-column justify-content-between position-relative overflow-hidden"
               style={getCardStyle('acquisition')}
             >
               <div className="row g-4 align-items-center">
@@ -240,7 +240,7 @@ const AgencyServicesBento = () => {
           {/* Card 2: AI Voice Receptionist (Flagship Dark Cyber Theme) */}
           <div className="col-12 col-xl-5">
             <div
-              className="rounded-4 h-100 border p-4 p-xl-5 d-flex flex-column justify-content-between position-relative overflow-hidden"
+              className="rounded-4 h-100 border p-3 p-sm-4 p-xl-5 d-flex flex-column justify-content-between position-relative overflow-hidden"
               style={getCardStyle('ai', true)}
             >
               <div>
@@ -324,7 +324,7 @@ const AgencyServicesBento = () => {
           {/* Card 3: GoHighLevel (GHL) Services */}
           <div className="col-12 col-md-6 col-lg-4">
             <div
-              className="rounded-4 h-100 bg-white border p-4 p-xl-4 d-flex flex-column justify-content-between"
+              className="rounded-4 h-100 bg-white border p-3 p-sm-4 d-flex flex-column justify-content-between"
               style={getCardStyle('automation')}
             >
               <div>
@@ -351,26 +351,30 @@ const AgencyServicesBento = () => {
                   Custom GHL account setups, custom snapshots, sales pipelines, multi-room calendars, and automated 5-touch SMS sequences.
                 </p>
 
-                {/* Mini Pipeline Preview UI */}
-                <div className="p-3 rounded-3 bg-light border mb-3">
+                {/* Mini Pipeline Preview UI - 100% Fluid Mobile Responsive Grid */}
+                <div className="p-2 p-sm-3 rounded-3 bg-light border mb-3">
                   <div className="d-flex align-items-center justify-content-between font-size-11 font-weight-bold text-secondary mb-2">
                     <span>LIVE PIPELINE</span>
                     <span className="text-primary" style={{ color: '#0066FF' }}>GHL Snapshot</span>
                   </div>
-                  <div className="d-flex align-items-center justify-content-between gap-1 text-center font-size-10">
-                    <div className="p-1 px-2 rounded bg-white border flex-grow-1">
-                      <div className="font-weight-bold text-dark">142</div>
-                      <div className="text-muted">Inquiries</div>
+                  <div className="row g-1 g-sm-2 text-center align-items-center">
+                    <div className="col-4">
+                      <div className="p-2 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                        <div className="font-weight-bold text-dark font-size-13 font-size-sm-14">142</div>
+                        <div className="text-muted font-size-10 text-truncate">Inquiries</div>
+                      </div>
                     </div>
-                    <span className="text-muted">→</span>
-                    <div className="p-1 px-2 rounded bg-white border flex-grow-1">
-                      <div className="font-weight-bold text-primary" style={{ color: '#0066FF' }}>58</div>
-                      <div className="text-muted">Qualified</div>
+                    <div className="col-4">
+                      <div className="p-2 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                        <div className="font-weight-bold font-size-13 font-size-sm-14" style={{ color: '#0066FF' }}>58</div>
+                        <div className="text-muted font-size-10 text-truncate">Qualified</div>
+                      </div>
                     </div>
-                    <span className="text-muted">→</span>
-                    <div className="p-1 px-2 rounded bg-white border flex-grow-1">
-                      <div className="font-weight-bold text-success">34</div>
-                      <div className="text-muted">Booked</div>
+                    <div className="col-4">
+                      <div className="p-2 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                        <div className="font-weight-bold text-success font-size-13 font-size-sm-14">34</div>
+                        <div className="text-muted font-size-10 text-truncate">Booked</div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -399,7 +403,7 @@ const AgencyServicesBento = () => {
           {/* Card 4: n8n Automation Services */}
           <div className="col-12 col-md-6 col-lg-4">
             <div
-              className="rounded-4 h-100 bg-white border p-4 p-xl-4 d-flex flex-column justify-content-between"
+              className="rounded-4 h-100 bg-white border p-3 p-sm-4 d-flex flex-column justify-content-between"
               style={getCardStyle('automation')}
             >
               <div>
@@ -427,23 +431,23 @@ const AgencyServicesBento = () => {
                 </p>
 
                 {/* Visual Node Flowchart UI */}
-                <div className="p-3 rounded-3 bg-light border mb-3">
+                <div className="p-2 p-sm-3 rounded-3 bg-light border mb-3">
                   <div className="d-flex align-items-center justify-content-between font-size-11 font-weight-bold text-secondary mb-2">
                     <span>n8n WORKFLOW ENGINE</span>
-                    <span className="badge bg-success bg-opacity-25 text-success font-size-9">Self-Hosted</span>
+                    <span className="badge bg-success bg-opacity-25 text-success font-size-9 flex-shrink-0">Self-Hosted</span>
                   </div>
                   <div className="d-flex flex-column gap-1 font-size-11 font-monospace">
-                    <div className="p-1 px-2 rounded bg-white border d-flex align-items-center justify-content-between">
-                      <span>1. Webhook: Deposit Paid</span>
-                      <span className="text-success">200 OK</span>
+                    <div className="p-1 px-2 rounded bg-white border d-flex align-items-center justify-content-between gap-1">
+                      <span className="text-truncate me-1">1. Webhook: Deposit Paid</span>
+                      <span className="text-success flex-shrink-0">200 OK</span>
                     </div>
-                    <div className="p-1 px-2 rounded bg-white border d-flex align-items-center justify-content-between">
-                      <span>2. Calendar Lock &amp; Buffer</span>
-                      <span className="text-primary" style={{ color: '#0066FF' }}>15m STC</span>
+                    <div className="p-1 px-2 rounded bg-white border d-flex align-items-center justify-content-between gap-1">
+                      <span className="text-truncate me-1">2. Calendar Lock &amp; Buffer</span>
+                      <span className="text-primary flex-shrink-0" style={{ color: '#0066FF' }}>15m STC</span>
                     </div>
-                    <div className="p-1 px-2 rounded bg-white border d-flex align-items-center justify-content-between">
-                      <span>3. Auto-Dispatch Guest NDA</span>
-                      <span className="text-warning">Signed</span>
+                    <div className="p-1 px-2 rounded bg-white border d-flex align-items-center justify-content-between gap-1">
+                      <span className="text-truncate me-1">3. Auto-Dispatch Guest NDA</span>
+                      <span className="text-warning flex-shrink-0">Signed</span>
                     </div>
                   </div>
                 </div>
@@ -472,7 +476,7 @@ const AgencyServicesBento = () => {
           {/* Card 5: CRM & Client Management */}
           <div className="col-12 col-md-6 col-lg-4">
             <div
-              className="rounded-4 h-100 bg-white border p-4 p-xl-4 d-flex flex-column justify-content-between"
+              className="rounded-4 h-100 bg-white border p-3 p-sm-4 d-flex flex-column justify-content-between"
               style={getCardStyle('automation')}
             >
               <div>
@@ -500,22 +504,22 @@ const AgencyServicesBento = () => {
                 </p>
 
                 {/* Client Retention Loop UI */}
-                <div className="p-3 rounded-3 bg-light border mb-3">
+                <div className="p-2 p-sm-3 rounded-3 bg-light border mb-3">
                   <div className="d-flex align-items-center justify-content-between font-size-11 font-weight-bold text-secondary mb-2">
                     <span>LIFECYCLE MANAGEMENT</span>
-                    <span className="text-success font-weight-bold">+45% Re-Booking</span>
+                    <span className="text-success font-weight-bold flex-shrink-0">+45% Re-Booking</span>
                   </div>
                   <div className="p-2 rounded bg-white border font-size-11 mb-2">
                     <div className="d-flex align-items-center justify-content-between mb-1">
-                      <strong className="text-dark">Digital Waiver Signed</strong>
-                      <span className="text-success">Verified</span>
+                      <strong className="text-dark text-truncate me-1">Digital Waiver Signed</strong>
+                      <span className="text-success flex-shrink-0">Verified</span>
                     </div>
                     <div className="text-secondary font-size-10">Appearance release &amp; terms signed on client phone</div>
                   </div>
                   <div className="p-2 rounded bg-white border font-size-11">
                     <div className="d-flex align-items-center justify-content-between mb-1">
-                      <strong className="text-dark">Post-Session Follow-Up</strong>
-                      <span className="text-primary" style={{ color: '#0066FF' }}>Day 7 SMS</span>
+                      <strong className="text-dark text-truncate me-1">Post-Session Follow-Up</strong>
+                      <span className="text-primary flex-shrink-0" style={{ color: '#0066FF' }}>Day 7 SMS</span>
                     </div>
                     <div className="text-secondary font-size-10">Re-engagement trigger offering VIP returning rate</div>
                   </div>
@@ -550,7 +554,7 @@ const AgencyServicesBento = () => {
           {/* Card 6: Website & Funnel Development */}
           <div className="col-12 col-lg-6">
             <div
-              className="rounded-4 h-100 bg-white border p-4 p-xl-5 d-flex flex-column justify-content-between position-relative overflow-hidden"
+              className="rounded-4 h-100 bg-white border p-3 p-sm-4 p-xl-5 d-flex flex-column justify-content-between position-relative overflow-hidden"
               style={getCardStyle('acquisition')}
             >
               <div className="row g-4 align-items-center">
@@ -627,7 +631,7 @@ const AgencyServicesBento = () => {
           {/* Card 7: Digital Marketing & Reputation Management */}
           <div className="col-12 col-lg-6">
             <div
-              className="rounded-4 h-100 bg-white border p-4 p-xl-5 d-flex flex-column justify-content-between position-relative overflow-hidden"
+              className="rounded-4 h-100 bg-white border p-3 p-sm-4 p-xl-5 d-flex flex-column justify-content-between position-relative overflow-hidden"
               style={getCardStyle('acquisition')}
             >
               <div className="row g-4 align-items-center">

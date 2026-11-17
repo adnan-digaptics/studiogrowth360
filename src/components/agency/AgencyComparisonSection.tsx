@@ -143,19 +143,23 @@ const AgencyComparisonSection = () => {
         </div>
 
         {/* Action Callout */}
-        <div className="p-4 p-xl-5 rounded-4 bg-white border d-flex flex-column flex-lg-row align-items-center justify-content-between gap-4 shadow-sm" style={{ borderColor: '#E2E8F0' }}>
-          <div>
-            <div className="text-dark font-weight-bold font-size-16 mb-1">
-              Ready to upgrade your studio from manual chaos to autonomous growth?
+        <div className="p-4 p-xl-5 rounded-4 bg-white border shadow-sm" style={{ borderColor: '#E2E8F0' }}>
+          <div className="row align-items-center g-3 g-lg-4">
+            <div className="col-12 col-lg-8">
+              <div className="text-dark font-weight-bold font-size-17 font-size-md-18 mb-1">
+                Ready to upgrade your studio from manual chaos to autonomous growth?
+              </div>
+              <div className="text-secondary font-size-14" style={{ lineHeight: '1.6' }}>
+                We provide complete turnkey onboarding and data migration from your existing booking software in 7–14 days.
+              </div>
             </div>
-            <div className="text-secondary font-size-14">
-              We provide complete turnkey onboarding and data migration from your existing booking software in 7–14 days.
+
+            <div className="col-12 col-lg-4 text-start text-lg-end">
+              <Link href="/book-consultation" className="sg_btn_primary font-size-14 py-3 px-4 d-inline-flex">
+                <span>Schedule Discovery Call →</span>
+              </Link>
             </div>
           </div>
-
-          <Link href="/book-consultation" className="sg_btn_primary font-size-14 py-3 px-4 flex-shrink-0">
-            <span>Schedule Discovery Call →</span>
-          </Link>
         </div>
       </div>
     </section>

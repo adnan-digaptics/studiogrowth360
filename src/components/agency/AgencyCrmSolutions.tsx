@@ -105,21 +105,26 @@ const AgencyCrmSolutions = () => {
                       transition: 'all 0.25s ease',
                     }}
                   >
-                    <div className="d-flex align-items-center justify-content-between mb-2">
-                      <div className="d-flex align-items-center gap-3">
-                        <IconContainer size={40} bg={isActive ? 'rgba(0, 102, 255, 0.15)' : 'rgba(0, 102, 255, 0.08)'} border="1px solid rgba(0, 102, 255, 0.2)" radius="10px">
+                    <div className="d-flex align-items-start justify-content-between gap-2 mb-2">
+                      <div className="d-flex align-items-start gap-2 gap-sm-3 min-w-0 flex-grow-1">
+                        <IconContainer size={40} bg={isActive ? 'rgba(0, 102, 255, 0.15)' : 'rgba(0, 102, 255, 0.08)'} border="1px solid rgba(0, 102, 255, 0.2)" radius="10px" className="flex-shrink-0 mt-1">
                           {cap.icon}
                         </IconContainer>
-                        <div>
-                          <h3 className="text-dark font-size-16 font-weight-bold mb-0">
+                        <div className="min-w-0 flex-grow-1">
+                          <h3 className="text-dark font-size-15 font-size-sm-16 font-weight-bold mb-1">
                             {cap.title}
                           </h3>
-                          <span className="font-size-11 font-weight-bold text-primary" style={{ color: '#0066FF' }}>
-                            {cap.tag}
-                          </span>
+                          <div className="d-flex flex-wrap align-items-center gap-2">
+                            <span className="font-size-11 font-weight-bold text-primary" style={{ color: '#0066FF' }}>
+                              {cap.tag}
+                            </span>
+                            <span className="badge rounded-pill bg-light text-dark border font-size-10 font-monospace px-2 py-1 d-inline-block d-md-none">
+                              {cap.metric}
+                            </span>
+                          </div>
                         </div>
                       </div>
-                      <span className="badge rounded-pill bg-light text-dark border font-size-10 font-monospace px-2 py-1">
+                      <span className="badge rounded-pill bg-light text-dark border font-size-10 font-monospace px-2 py-1 flex-shrink-0 d-none d-md-inline-block">
                         {cap.metric}
                       </span>
                     </div>
@@ -146,38 +151,38 @@ const AgencyCrmSolutions = () => {
             >
               {/* Terminal Window Header Bar */}
               <div
-                className="px-4 py-3 d-flex align-items-center justify-content-between border-bottom"
+                className="px-3 px-sm-4 py-3 d-flex flex-wrap align-items-center justify-content-between gap-2 border-bottom"
                 style={{
                   background: '#0F172A',
                   borderColor: 'rgba(255, 255, 255, 0.1)',
                 }}
               >
-                <div className="d-flex align-items-center gap-2">
-                  <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#EF4444' }}></span>
-                  <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#F59E0B' }}></span>
-                  <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10B981' }}></span>
-                  <span className="text-white-50 font-monospace font-size-12 ms-2">
+                <div className="d-flex align-items-center gap-2 min-w-0">
+                  <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#EF4444', flexShrink: 0 }}></span>
+                  <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#F59E0B', flexShrink: 0 }}></span>
+                  <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10B981', flexShrink: 0 }}></span>
+                  <span className="text-white-50 font-monospace font-size-11 font-size-sm-12 text-truncate ms-1 ms-sm-2">
                     StudioGrowth360 · GHL Command Center
                   </span>
                 </div>
-                <span className="badge rounded-pill bg-success bg-opacity-25 text-success font-size-10 px-2 py-1">
+                <span className="badge rounded-pill bg-success bg-opacity-25 text-success font-size-10 px-2 py-1 flex-shrink-0">
                   ● Live Sync Active
                 </span>
               </div>
 
               {/* Terminal Body Content Based on Active Capability */}
-              <div className="p-4 text-white">
+              <div className="p-3 p-sm-4 text-white">
                 {/* Active Capability Banner */}
-                <div className="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom border-secondary border-opacity-25">
-                  <div>
+                <div className="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-4 pb-3 border-bottom border-secondary border-opacity-25">
+                  <div className="min-w-0">
                     <span className="font-monospace font-size-11 text-uppercase" style={{ color: '#38BDF8' }}>
                       FEATURE SPOTLIGHT:
                     </span>
-                    <div className="font-size-18 font-weight-bold text-white mt-1">
+                    <div className="font-size-16 font-size-sm-18 font-weight-bold text-white mt-1">
                       {current.title}
                     </div>
                   </div>
-                  <span className="badge rounded-pill font-size-11 px-3 py-1 font-weight-bold" style={{ background: 'rgba(0, 102, 255, 0.25)', color: '#38BDF8', border: '1px solid rgba(56, 189, 248, 0.3)' }}>
+                  <span className="badge rounded-pill font-size-11 px-3 py-1 font-weight-bold flex-shrink-0" style={{ background: 'rgba(0, 102, 255, 0.25)', color: '#38BDF8', border: '1px solid rgba(56, 189, 248, 0.3)' }}>
                     {current.tag}
                   </span>
                 </div>
@@ -230,28 +235,28 @@ const AgencyCrmSolutions = () => {
 
         {/* Turnkey Setup Feature Bar */}
         <div
-          className="rounded-4 overflow-hidden border bg-light p-4 p-xl-5 d-flex flex-column flex-lg-row align-items-center justify-content-between gap-4 shadow-sm"
+          className="rounded-4 overflow-hidden border bg-light p-3 p-sm-4 p-xl-5 d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-4 shadow-sm"
           style={{ borderColor: '#E2E8F0' }}
         >
-          <div className="d-flex align-items-center gap-3">
-            <IconContainer size={48} bg="rgba(0, 102, 255, 0.1)" border="1px solid rgba(0, 102, 255, 0.25)" radius="12px">
-              <IconSparkles size={24} color="#0066FF" />
+          <div className="d-flex align-items-start gap-3">
+            <IconContainer size={44} bg="rgba(0, 102, 255, 0.1)" border="1px solid rgba(0, 102, 255, 0.25)" radius="12px" className="flex-shrink-0 mt-1">
+              <IconSparkles size={22} color="#0066FF" />
             </IconContainer>
             <div>
-              <div className="text-dark font-weight-bold font-size-17 mb-1">
+              <div className="text-dark font-weight-bold font-size-16 font-size-sm-17 mb-1">
                 We Build, Migrate &amp; Manage Your Entire Studio CRM
               </div>
-              <div className="text-secondary font-size-14">
+              <div className="text-secondary font-size-13 font-size-sm-14">
                 From migrating client history from Mindbody, HoneyBook, or spreadsheets to configuring multi-suite calendars and automated SMS—our US engineers handle everything.
               </div>
             </div>
           </div>
 
-          <div className="d-flex flex-wrap align-items-center gap-3 flex-shrink-0">
-            <Link href="/crm-solutions" className="sg_btn_primary font-size-14 py-3 px-4">
+          <div className="d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center gap-3 flex-shrink-0">
+            <Link href="/crm-solutions" className="sg_btn_primary font-size-14 py-3 px-4 w-100 w-sm-auto justify-content-center text-center">
               <span>Explore CRM Blueprint →</span>
             </Link>
-            <Link href="/book-consultation" className="sg_btn_secondary font-size-14 py-3 px-4">
+            <Link href="/book-consultation" className="sg_btn_secondary font-size-14 py-3 px-4 w-100 w-sm-auto justify-content-center text-center">
               <span>Free CRM Audit</span>
             </Link>
           </div>

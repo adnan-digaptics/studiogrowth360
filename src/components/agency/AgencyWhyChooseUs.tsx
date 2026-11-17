@@ -265,26 +265,32 @@ const AgencyWhyChooseUs = () => {
 
         {/* Executive Action Banner */}
         <div
-          className="p-4 p-xl-5 rounded-4 bg-white border d-flex flex-column flex-lg-row align-items-center justify-content-between gap-4 shadow-sm"
+          className="p-4 p-xl-5 rounded-4 bg-white border shadow-sm"
           style={{ borderColor: '#E2E8F0' }}
         >
-          <div className="d-flex align-items-center gap-3">
-            <IconContainer size={50} bg="rgba(0, 102, 255, 0.1)" border="1px solid rgba(0, 102, 255, 0.25)" radius="12px">
-              <IconSparkles size={26} color="#0066FF" />
-            </IconContainer>
-            <div>
-              <div className="text-dark font-weight-bold font-size-17 mb-1">
-                Ready to see our automation architecture tailored for your specific studio facility?
-              </div>
-              <div className="text-secondary font-size-14">
-                Book a free 30-minute growth &amp; CRM blueprint consultation with our studio engineering team.
+          <div className="row align-items-center g-3 g-lg-4">
+            <div className="col-12 col-lg-8">
+              <div className="d-flex align-items-center gap-3">
+                <IconContainer size={50} bg="rgba(0, 102, 255, 0.1)" border="1px solid rgba(0, 102, 255, 0.25)" radius="12px" className="flex-shrink-0">
+                  <IconSparkles size={26} color="#0066FF" />
+                </IconContainer>
+                <div>
+                  <div className="text-dark font-weight-bold font-size-17 mb-1">
+                    Ready to see our automation architecture tailored for your specific studio facility?
+                  </div>
+                  <div className="text-secondary font-size-14" style={{ lineHeight: '1.6' }}>
+                    Book a free 30-minute growth &amp; CRM blueprint consultation with our studio engineering team.
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <Link href="/book-consultation" className="sg_btn_primary font-size-14 py-3 px-4 flex-shrink-0">
-            <span>Schedule Free Strategy Call →</span>
-          </Link>
+            <div className="col-12 col-lg-4 text-start text-lg-end">
+              <Link href="/book-consultation" className="sg_btn_primary font-size-14 py-3 px-4 d-inline-flex">
+                <span>Schedule Free Strategy Call →</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </section>

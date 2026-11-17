@@ -85,12 +85,12 @@ const AgencyAutomationTech = () => {
               ))}
             </div>
 
-            <div className="d-flex flex-wrap gap-3">
-              <Link href="/n8n-automation" className="sg_btn_primary font-size-13 py-2 px-4">
+            <div className="d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center gap-2 gap-sm-3">
+              <Link href="/n8n-automation" className="sg_btn_primary font-size-13 py-2 px-4 w-100 w-sm-auto justify-content-center text-center">
                 <span>Explore n8n Services</span>
                 <span>→</span>
               </Link>
-              <Link href="/gohighlevel-services" className="sg_btn_secondary font-size-13 py-2 px-4">
+              <Link href="/gohighlevel-services" className="sg_btn_secondary font-size-13 py-2 px-4 w-100 w-sm-auto justify-content-center text-center">
                 <span>GoHighLevel Services</span>
               </Link>
             </div>
@@ -112,7 +112,7 @@ const AgencyAutomationTech = () => {
               {/* Node Sequence Visualizer */}
               <div className="d-flex flex-column gap-3">
                 {/* Node 1 */}
-                <div className="p-3 rounded-3 d-flex align-items-center justify-content-between" style={{ background: "rgba(255, 255, 255, 0.04)", border: "1px solid rgba(255, 255, 255, 0.1)" }}>
+                <div className="p-3 rounded-3 d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between gap-2" style={{ background: "rgba(255, 255, 255, 0.04)", border: "1px solid rgba(255, 255, 255, 0.1)" }}>
                   <div className="d-flex align-items-center gap-2">
                     <IconContainer size={32} bg="rgba(56, 189, 248, 0.15)" border="1px solid rgba(56, 189, 248, 0.3)">
                       <IconZap size={16} color="#38BDF8" />
@@ -122,7 +122,7 @@ const AgencyAutomationTech = () => {
                       <div className="text-secondary font-size-10" style={{ color: "#94A3B8" }}>Captures Client Name, Email, Session Type, &amp; Retainer Amount</div>
                     </div>
                   </div>
-                  <span className="badge bg-success bg-opacity-25 text-success font-size-9">Success (200)</span>
+                  <span className="badge bg-success bg-opacity-25 text-success font-size-9 flex-shrink-0">Success (200)</span>
                 </div>
 
                 <div className="text-center" style={{ lineHeight: "1" }}>
@@ -130,7 +130,7 @@ const AgencyAutomationTech = () => {
                 </div>
 
                 {/* Node 2 */}
-                <div className="p-3 rounded-3 d-flex align-items-center justify-content-between" style={{ background: "rgba(255, 255, 255, 0.04)", border: "1px solid rgba(255, 255, 255, 0.1)" }}>
+                <div className="p-3 rounded-3 d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between gap-2" style={{ background: "rgba(255, 255, 255, 0.04)", border: "1px solid rgba(255, 255, 255, 0.1)" }}>
                   <div className="d-flex align-items-center gap-2">
                     <IconContainer size={32} bg="rgba(0, 102, 255, 0.15)" border="1px solid rgba(0, 102, 255, 0.3)">
                       <IconCalendar size={16} color="#38BDF8" />
@@ -140,7 +140,7 @@ const AgencyAutomationTech = () => {
                       <div className="text-secondary font-size-10" style={{ color: "#94A3B8" }}>Blocks 2h Recording Suite + 15m Engineer Buffer Interval</div>
                     </div>
                   </div>
-                  <span className="badge bg-success bg-opacity-25 text-success font-size-9">Synced</span>
+                  <span className="badge bg-success bg-opacity-25 text-success font-size-9 flex-shrink-0">Synced</span>
                 </div>
 
                 <div className="text-center" style={{ lineHeight: "1" }}>

@@ -177,34 +177,34 @@ const AgencyStudioShowcase = () => {
                 Whether you manage a single photography cyclorama or a multi-room podcast studio complex, our platform unifies incoming leads, calendar bookings, deposit payments, waiver signing, and 5-star Google review requests into a self-driving system.
               </p>
 
-              <div className="row g-3 mb-4">
-                <div className="col-6 col-sm-4">
-                  <div className="p-3 rounded-3" style={{ background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
-                    <div className="font-size-22 font-weight-bold text-white mb-1">&lt; 2 min</div>
-                    <div className="font-size-11" style={{ color: '#94A3B8' }}>Automated Reply</div>
+              <div className="row g-2 g-sm-3 mb-4 text-center text-sm-start">
+                <div className="col-4">
+                  <div className="p-2 p-sm-3 rounded-3 h-100" style={{ background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                    <div className="font-size-16 font-size-sm-22 font-weight-bold text-white mb-1">&lt; 2 min</div>
+                    <div className="font-size-10 font-size-sm-11 text-truncate" style={{ color: '#94A3B8' }}>Automated Reply</div>
                   </div>
                 </div>
-                <div className="col-6 col-sm-4">
-                  <div className="p-3 rounded-3" style={{ background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
-                    <div className="font-size-22 font-weight-bold text-white mb-1">0%</div>
-                    <div className="font-size-11" style={{ color: '#94A3B8' }}>No-Show Rate</div>
+                <div className="col-4">
+                  <div className="p-2 p-sm-3 rounded-3 h-100" style={{ background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                    <div className="font-size-16 font-size-sm-22 font-weight-bold text-white mb-1">0%</div>
+                    <div className="font-size-10 font-size-sm-11 text-truncate" style={{ color: '#94A3B8' }}>No-Show Rate</div>
                   </div>
                 </div>
-                <div className="col-12 col-sm-4">
-                  <div className="p-3 rounded-3" style={{ background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
-                    <div className="font-size-22 font-weight-bold text-white mb-1">24/7</div>
-                    <div className="font-size-11" style={{ color: '#94A3B8' }}>AI Voice Reception</div>
+                <div className="col-4">
+                  <div className="p-2 p-sm-3 rounded-3 h-100" style={{ background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                    <div className="font-size-16 font-size-sm-22 font-weight-bold text-white mb-1">24/7</div>
+                    <div className="font-size-10 font-size-sm-11 text-truncate" style={{ color: '#94A3B8' }}>AI Reception</div>
                   </div>
                 </div>
               </div>
 
-              <div className="d-flex flex-wrap align-items-center gap-3">
-                <Link href="/book-consultation" className="sg_btn_primary font-size-14 py-3 px-4">
+              <div className="d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center gap-3">
+                <Link href="/book-consultation" className="sg_btn_primary font-size-14 py-3 px-4 w-100 w-sm-auto justify-content-center text-center">
                   <span>Book Free Studio Strategy Call →</span>
                 </Link>
                 <Link
                   href="/services"
-                  className="sg_btn_secondary font-size-14 py-3 px-4"
+                  className="sg_btn_secondary font-size-14 py-3 px-4 w-100 w-sm-auto justify-content-center text-center"
                   style={{ background: '#FFFFFF', color: '#0F172A', borderColor: '#FFFFFF', fontWeight: 700 }}
                 >
                   <span style={{ color: '#0F172A', fontWeight: 700 }}>View All 7 Services</span>

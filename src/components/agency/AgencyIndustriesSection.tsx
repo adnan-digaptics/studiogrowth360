@@ -94,12 +94,12 @@ const AgencyIndustriesSection = () => {
                 </div>
               </div>
 
-              <div className="d-flex flex-wrap align-items-center gap-3">
-                <Link href={`/${current.slug}`} className="sg_btn_primary font-size-13 py-2 px-4">
+              <div className="d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center gap-3">
+                <Link href={`/${current.slug}`} className="sg_btn_primary font-size-13 py-2 px-4 w-100 w-sm-auto justify-content-center text-center">
                   <span>Explore {current.name} Solutions</span>
                   <span>→</span>
                 </Link>
-                <Link href="/book-consultation" className="sg_btn_secondary font-size-13 py-2 px-3">
+                <Link href="/book-consultation" className="sg_btn_secondary font-size-13 py-2 px-3 w-100 w-sm-auto justify-content-center text-center">
                   <span>Book Free Studio Audit</span>
                 </Link>
               </div>

@@ -54,7 +54,7 @@ const FooterOne = () => {
               </div>
             </div>
 
-            <div className="col-12 col-lg-4 text-lg-end">
+            <div className="col-12 col-lg-4 text-start text-lg-end">
               <Link href="/book-consultation" className="sg_btn_primary font-size-13 py-2 px-4 d-inline-flex">
                 <span>Book Free Strategy Call →</span>
               </Link>

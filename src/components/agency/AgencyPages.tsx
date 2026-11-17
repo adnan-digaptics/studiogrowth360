@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Script from "next/script";
 import { AgencyLayout } from "./AgencyLayout";
 import {
   mainServices,
@@ -58,13 +59,13 @@ export function ServicesIndexPage() {
           <p className="text-secondary font-size-17 max-w-750 mx-auto mb-4" style={{ color: "#CBD5E1", lineHeight: 1.6 }}>
             Explore our 7 dedicated digital growth and operational automation offerings engineered exclusively for creative and wellness studios across the United States.
           </p>
-          <div className="d-flex flex-wrap justify-content-center gap-3">
-            <Link href="/book-consultation" className="sg_btn_primary font-size-14 py-3 px-4">
+          <div className="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-3">
+            <Link href="/book-consultation" className="sg_btn_primary font-size-14 py-3 px-4 w-100 w-sm-auto justify-content-center text-center">
               <span>Book a Free Strategy Call →</span>
             </Link>
             <Link
               href="/pricing"
-              className="sg_btn_secondary font-size-14 py-3 px-4"
+              className="sg_btn_secondary font-size-14 py-3 px-4 w-100 w-sm-auto justify-content-center text-center"
               style={{ background: '#FFFFFF', color: '#0F172A', borderColor: '#FFFFFF', fontWeight: 700 }}
             >
               <span style={{ color: '#0F172A', fontWeight: 700 }}>View Packages &amp; Pricing</span>
@@ -303,11 +304,11 @@ export function ServiceDetailPage({ slug }: { slug: string }) {
               </p>
 
               {/* CTAs */}
-              <div className="d-flex flex-wrap align-items-center gap-3 mb-4">
-                <Link href="/book-consultation" className="sg_btn_primary font-size-14 py-3 px-4 shadow-lg">
+              <div className="d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center gap-3 mb-4">
+                <Link href="/book-consultation" className="sg_btn_primary font-size-14 py-3 px-4 shadow-lg w-100 w-sm-auto justify-content-center text-center">
                   <span>Schedule Free Architecture Call →</span>
                 </Link>
-                <a href="#deliverables" className="sg_btn_secondary font-size-14 py-3 px-4" style={{ background: "rgba(255, 255, 255, 0.08)", color: "#FFFFFF", borderColor: "rgba(255, 255, 255, 0.2)" }}>
+                <a href="#deliverables" className="sg_btn_secondary font-size-14 py-3 px-4 w-100 w-sm-auto justify-content-center text-center" style={{ background: "rgba(255, 255, 255, 0.08)", color: "#FFFFFF", borderColor: "rgba(255, 255, 255, 0.2)" }}>
                   <span>Explore System Blueprint ↓</span>
                 </a>
               </div>
@@ -828,12 +829,31 @@ export function ServiceDetailPage({ slug }: { slug: string }) {
             </div>
 
             <div className="col-12 col-lg-7">
-              <ConsultationForm
-                serviceSlug={service.slug}
-                serviceName={service.title}
-                badgeText={`CUSTOM ${service.title.toUpperCase()}`}
-                source={`Inner Service: ${service.title}`}
-              />
+              <div className="rounded-4 bg-white border shadow-sm overflow-hidden">
+                <iframe
+                  src="https://links.360growthlab.com/widget/form/0uj8HMiNVA3wVuQXaSZe"
+                  style={{ width: "100%", height: "824px", border: "none", borderRadius: "8px" }}
+                  id="inline-0uj8HMiNVA3wVuQXaSZe"
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Schedule my free consultation call Adnan khan - Services Page"
+                  data-height="824"
+                  data-layout-iframe-id="inline-0uj8HMiNVA3wVuQXaSZe"
+                  data-form-id="0uj8HMiNVA3wVuQXaSZe"
+                  data-cookie-consent="true"
+                  data-cookie-consent-provider="auto"
+                  title="Schedule my free consultation call Adnan khan - Services Page"
+                />
+                <Script
+                  src="https://links.360growthlab.com/js/form_embed.js"
+                  strategy="afterInteractive"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -1047,13 +1067,13 @@ export function IndustryDetailPage({ slug }: { slug: string }) {
               {industry.heroSubheadline}
             </p>
 
-            <div className="d-flex flex-wrap justify-content-center gap-3">
-              <Link href="/book-consultation" className="sg_btn_primary font-size-14 py-3 px-4">
+            <div className="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-3">
+              <Link href="/book-consultation" className="sg_btn_primary font-size-14 py-3 px-4 w-100 w-sm-auto justify-content-center text-center">
                 <span>Book a Free Studio Strategy Call →</span>
               </Link>
               <Link
                 href="/pricing"
-                className="sg_btn_secondary font-size-14 py-3 px-4"
+                className="sg_btn_secondary font-size-14 py-3 px-4 w-100 w-sm-auto justify-content-center text-center"
                 style={{ background: '#FFFFFF', color: '#0F172A', borderColor: '#FFFFFF', fontWeight: 700 }}
               >
                 <span style={{ color: '#0F172A', fontWeight: 700 }}>View Pricing Packages</span>
@@ -1236,7 +1256,7 @@ export function AboutPage() {
           <p className="text-secondary font-size-17 max-w-750 mx-auto mb-4" style={{ color: "#CBD5E1", lineHeight: 1.6 }}>
             Brand Tagline: <strong className="text-white">Automate. Grow. Scale.</strong> We provide CRM solutions, business automation, AI automation, lead generation, and digital growth services to studios across the United States.
           </p>
-          <Link href="/book-consultation" className="sg_btn_primary font-size-14 py-3 px-4 d-inline-flex">
+          <Link href="/book-consultation" className="sg_btn_primary font-size-14 py-3 px-4 w-100 w-sm-auto justify-content-center text-center d-inline-flex">
             <span>Meet with Our Studio Team →</span>
           </Link>
         </div>
@@ -1627,12 +1647,31 @@ export function ContactPage() {
 
             {/* Form */}
             <div className="col-12 col-lg-7">
-              <ConsultationForm
-                title="Send Us a Direct Message"
-                subtitle="Speak directly with our studio automation engineering team in Illinois about your tech stack, workflows, or custom requirements."
-                badgeText="DIRECT AGENCY INTAKE"
-                source="Contact Us Page"
-              />
+              <div className="rounded-4 bg-white border shadow-sm overflow-hidden">
+                <iframe
+                  src="https://links.360growthlab.com/widget/form/VIlWqgaF3g08lXt1CNNz"
+                  style={{ width: "100%", height: "824px", border: "none", borderRadius: "8px" }}
+                  id="inline-VIlWqgaF3g08lXt1CNNz"
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Schedule my free consultation call Adnan khan"
+                  data-height="824"
+                  data-layout-iframe-id="inline-VIlWqgaF3g08lXt1CNNz"
+                  data-form-id="VIlWqgaF3g08lXt1CNNz"
+                  data-cookie-consent="true"
+                  data-cookie-consent-provider="auto"
+                  title="Schedule my free consultation call Adnan khan"
+                />
+                <Script
+                  src="https://links.360growthlab.com/js/form_embed.js"
+                  strategy="afterInteractive"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -1718,12 +1757,31 @@ export function ConsultationPage() {
 
             {/* Form */}
             <div className="col-12 col-lg-7">
-              <ConsultationForm
-                title="Schedule Your 30-Minute Growth Audit"
-                subtitle="Lock in your session with a studio automation architect. We'll map out an actionable blueprint for your studio with zero sales pressure."
-                badgeText="100% FREE STRATEGY CALL"
-                source="Free Consultation Booking Page"
-              />
+              <div className="rounded-4 bg-white border shadow-sm overflow-hidden">
+                <iframe
+                  src="https://links.360growthlab.com/widget/form/qKMHvYMB0yNp0pyVjytp"
+                  style={{ width: "100%", height: "824px", border: "none", borderRadius: "8px" }}
+                  id="inline-qKMHvYMB0yNp0pyVjytp"
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Schedule my free consultation call Adnan khan - Book Free Consultant Page"
+                  data-height="824"
+                  data-layout-iframe-id="inline-qKMHvYMB0yNp0pyVjytp"
+                  data-form-id="qKMHvYMB0yNp0pyVjytp"
+                  data-cookie-consent="true"
+                  data-cookie-consent-provider="auto"
+                  title="Schedule my free consultation call Adnan khan - Book Free Consultant Page"
+                />
+                <Script
+                  src="https://links.360growthlab.com/js/form_embed.js"
+                  strategy="afterInteractive"
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -88,7 +88,7 @@ const AgencyHero = () => {
 
         {/* Trust Proof Badges */}
         <div className="text-center mb-5">
-          <div className="d-inline-flex flex-wrap align-items-center justify-content-center gap-2 gap-md-4 px-4 py-2 rounded-pill bg-white border shadow-sm">
+          <div className="d-inline-flex flex-wrap align-items-center justify-content-center gap-2 gap-md-4 px-3 px-sm-4 py-2 rounded-4 rounded-sm-pill bg-white border shadow-sm">
             <span className="font-size-13 font-weight-bold text-dark d-flex align-items-center gap-1">
               <span className="d-inline-flex align-items-center gap-1 text-warning">
                 {[...Array(5)].map((_, i) => (
@@ -97,7 +97,7 @@ const AgencyHero = () => {
               </span>
               <span>4.9 / 5.0 Rating</span>
             </span>
-            <span className="text-secondary opacity-50">·</span>
+            <span className="text-secondary opacity-50 d-none d-sm-inline">·</span>
             <span className="font-size-13 text-secondary">
               350+ Photography, Podcast, Yoga &amp; Craft Studios Across the USA
             </span>
@@ -123,7 +123,7 @@ const AgencyHero = () => {
               </div>
 
               {/* Interactive View Tabs */}
-              <div className="d-flex align-items-center gap-1 p-1 rounded-3" style={{ background: "rgba(255, 255, 255, 0.04)" }}>
+              <div className="d-flex align-items-center gap-1 p-1 rounded-3 overflow-x-auto" style={{ background: "rgba(255, 255, 255, 0.04)", maxWidth: "100%" }}>
                 <button
                   type="button"
                   onClick={() => setActiveTab('spaces')}
@@ -170,36 +170,36 @@ const AgencyHero = () => {
             {/* Dashboard Content */}
             <div className="p-3 p-md-4" style={{ background: "#0A192F" }}>
               {/* Top Metrics Row */}
-              <div className="row g-3 mb-4">
+              <div className="row g-2 g-sm-3 mb-4">
                 <div className="col-6 col-lg-3">
-                  <div className="p-3 rounded-3 h-100" style={{ background: "rgba(255, 255, 255, 0.03)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
-                    <div className="font-size-11 text-uppercase" style={{ color: "#94A3B8" }}>Monthly Booked Revenue</div>
-                    <div className="text-white font-weight-bold font-size-22 mt-1">$28,450</div>
-                    <div className="font-size-11 text-success mt-1">↑ +38% vs prev month</div>
+                  <div className="p-2 p-sm-3 rounded-3 h-100" style={{ background: "rgba(255, 255, 255, 0.03)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
+                    <div className="font-size-10 font-size-sm-11 text-uppercase text-truncate" style={{ color: "#94A3B8" }}>Monthly Revenue</div>
+                    <div className="text-white font-weight-bold font-size-17 font-size-sm-22 mt-1">$28,450</div>
+                    <div className="font-size-10 font-size-sm-11 text-success mt-1 text-truncate">↑ +38% MoM</div>
                   </div>
                 </div>
 
                 <div className="col-6 col-lg-3">
-                  <div className="p-3 rounded-3 h-100" style={{ background: "rgba(255, 255, 255, 0.03)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
-                    <div className="font-size-11 text-uppercase" style={{ color: "#94A3B8" }}>Inquiries Captured</div>
-                    <div className="text-white font-weight-bold font-size-22 mt-1">142 Leads</div>
-                    <div className="font-size-11 text-success mt-1">&lt; 2 min auto-response</div>
+                  <div className="p-2 p-sm-3 rounded-3 h-100" style={{ background: "rgba(255, 255, 255, 0.03)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
+                    <div className="font-size-10 font-size-sm-11 text-uppercase text-truncate" style={{ color: "#94A3B8" }}>Inquiries Captured</div>
+                    <div className="text-white font-weight-bold font-size-17 font-size-sm-22 mt-1">142 Leads</div>
+                    <div className="font-size-10 font-size-sm-11 text-success mt-1 text-truncate">&lt; 2m response</div>
                   </div>
                 </div>
 
                 <div className="col-6 col-lg-3">
-                  <div className="p-3 rounded-3 h-100" style={{ background: "rgba(255, 255, 255, 0.03)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
-                    <div className="font-size-11 text-uppercase" style={{ color: "#94A3B8" }}>Admin Hours Saved</div>
-                    <div className="text-white font-weight-bold font-size-22 mt-1" style={{ color: "#38BDF8" }}>28.5 hrs / wk</div>
-                    <div className="font-size-11 text-white-50 mt-1">n8n + GHL Workflows</div>
+                  <div className="p-2 p-sm-3 rounded-3 h-100" style={{ background: "rgba(255, 255, 255, 0.03)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
+                    <div className="font-size-10 font-size-sm-11 text-uppercase text-truncate" style={{ color: "#94A3B8" }}>Admin Saved</div>
+                    <div className="text-white font-weight-bold font-size-17 font-size-sm-22 mt-1" style={{ color: "#38BDF8" }}>28.5 hrs/wk</div>
+                    <div className="font-size-10 font-size-sm-11 text-white-50 mt-1 text-truncate">n8n + GHL Flow</div>
                   </div>
                 </div>
 
                 <div className="col-6 col-lg-3">
-                  <div className="p-3 rounded-3 h-100" style={{ background: "rgba(255, 255, 255, 0.03)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
-                    <div className="font-size-11 text-uppercase" style={{ color: "#94A3B8" }}>AI Calls Handled</div>
-                    <div className="text-white font-weight-bold font-size-22 mt-1" style={{ color: "#00E676" }}>89 Calls</div>
-                    <div className="font-size-11 text-white-50 mt-1">24/7 AI Receptionist</div>
+                  <div className="p-2 p-sm-3 rounded-3 h-100" style={{ background: "rgba(255, 255, 255, 0.03)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
+                    <div className="font-size-10 font-size-sm-11 text-uppercase text-truncate" style={{ color: "#94A3B8" }}>AI Calls Handled</div>
+                    <div className="text-white font-weight-bold font-size-17 font-size-sm-22 mt-1" style={{ color: "#00E676" }}>89 Calls</div>
+                    <div className="font-size-10 font-size-sm-11 text-white-50 mt-1 text-truncate">24/7 Receptionist</div>
                   </div>
                 </div>
               </div>
@@ -344,7 +344,7 @@ const AgencyHero = () => {
                   </div>
 
                   <div className="row g-2 text-center">
-                    <div className="col-12 col-md-3">
+                    <div className="col-12 col-sm-6 col-lg-3">
                       <div className="p-3 rounded-3" style={{ background: "rgba(0, 102, 255, 0.1)", border: "1px solid rgba(0, 102, 255, 0.3)" }}>
                         <div className="mb-2 d-flex justify-content-center">
                           <IconContainer size={36} bg="rgba(0, 102, 255, 0.2)" border="1px solid rgba(0, 102, 255, 0.4)">
@@ -355,7 +355,7 @@ const AgencyHero = () => {
                         <div className="font-size-10 text-secondary" style={{ color: "#94A3B8" }}>Google Ads / Meta Form</div>
                       </div>
                     </div>
-                    <div className="col-12 col-md-3">
+                    <div className="col-12 col-sm-6 col-lg-3">
                       <div className="p-3 rounded-3" style={{ background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.3)" }}>
                         <div className="mb-2 d-flex justify-content-center">
                           <IconContainer size={36} bg="rgba(16, 185, 129, 0.2)" border="1px solid rgba(16, 185, 129, 0.4)">
@@ -366,7 +366,7 @@ const AgencyHero = () => {
                         <div className="font-size-10 text-secondary" style={{ color: "#94A3B8" }}>Extract Date &amp; Studio Tier</div>
                       </div>
                     </div>
-                    <div className="col-12 col-md-3">
+                    <div className="col-12 col-sm-6 col-lg-3">
                       <div className="p-3 rounded-3" style={{ background: "rgba(245, 158, 11, 0.1)", border: "1px solid rgba(245, 158, 11, 0.3)" }}>
                         <div className="mb-2 d-flex justify-content-center">
                           <IconContainer size={36} bg="rgba(245, 158, 11, 0.2)" border="1px solid rgba(245, 158, 11, 0.4)">
@@ -377,7 +377,7 @@ const AgencyHero = () => {
                         <div className="font-size-10 text-secondary" style={{ color: "#94A3B8" }}>Check Room STC &amp; Gear</div>
                       </div>
                     </div>
-                    <div className="col-12 col-md-3">
+                    <div className="col-12 col-sm-6 col-lg-3">
                       <div className="p-3 rounded-3" style={{ background: "rgba(139, 92, 246, 0.1)", border: "1px solid rgba(139, 92, 246, 0.3)" }}>
                         <div className="mb-2 d-flex justify-content-center">
                           <IconContainer size={36} bg="rgba(139, 92, 246, 0.2)" border="1px solid rgba(139, 92, 246, 0.4)">
@@ -432,22 +432,22 @@ const AgencyHero = () => {
                   </div>
 
                   <div className="row g-3 text-center">
-                    <div className="col-4">
-                      <div className="p-3 rounded-3" style={{ background: "rgba(255, 255, 255, 0.03)" }}>
+                    <div className="col-12 col-sm-4">
+                      <div className="p-3 rounded-3 h-100" style={{ background: "rgba(255, 255, 255, 0.03)" }}>
                         <div className="font-size-11 text-secondary" style={{ color: "#94A3B8" }}>Weekday Off-Peak Fill Rate</div>
                         <div className="font-size-22 font-weight-bold text-white mt-1">78.4%</div>
                         <div className="font-size-11 text-success">↑ Was 32% before automation</div>
                       </div>
                     </div>
-                    <div className="col-4">
-                      <div className="p-4 rounded-3" style={{ background: "rgba(255, 255, 255, 0.03)" }}>
+                    <div className="col-12 col-sm-4">
+                      <div className="p-3 rounded-3 h-100" style={{ background: "rgba(255, 255, 255, 0.03)" }}>
                         <div className="font-size-11 text-secondary" style={{ color: "#94A3B8" }}>Average Customer LTV</div>
                         <div className="font-size-22 font-weight-bold text-white mt-1">$2,140</div>
                         <div className="font-size-11 text-success">↑ Via automated retention</div>
                       </div>
                     </div>
-                    <div className="col-4">
-                      <div className="p-4 rounded-3" style={{ background: "rgba(255, 255, 255, 0.03)" }}>
+                    <div className="col-12 col-sm-4">
+                      <div className="p-3 rounded-3 h-100" style={{ background: "rgba(255, 255, 255, 0.03)" }}>
                         <div className="font-size-11 text-secondary" style={{ color: "#94A3B8" }}>No-Show Rate</div>
                         <div className="font-size-22 font-weight-bold text-white mt-1">2.1%</div>
                         <div className="font-size-11 text-success">↓ Slashed from 14.8%</div>

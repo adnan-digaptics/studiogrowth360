@@ -74,7 +74,7 @@ const AgencyTestimonialsSection = () => {
         {/* 4 Testimonials Grid */}
         <div className="row g-4 align-items-stretch mb-5">
           {testimonials.map((item, idx) => (
-            <div key={idx} className="col-12 col-md-6 col-lg-3">
+            <div key={idx} className="col-12 col-md-6 col-xl-3">
               <div className="p-4 rounded-4 h-100 bg-white border d-flex flex-column justify-content-between sg_card_white">
                 <div>
                   {/* Rating Stars & Metric Pill */}
@@ -124,25 +124,31 @@ const AgencyTestimonialsSection = () => {
         </div>
 
         {/* Aggregate Proof Bar */}
-        <div className="p-4 rounded-4 border bg-light d-flex flex-wrap align-items-center justify-content-between gap-3">
-          <div className="d-flex flex-wrap align-items-center gap-3 gap-md-4">
-            <div>
-              <div className="font-monospace font-weight-bold font-size-22 text-dark">4.9 / 5.0</div>
-              <div className="font-size-11 text-secondary">Verified Studio Operator Rating</div>
+        <div className="p-4 rounded-4 border bg-light">
+          <div className="row align-items-center g-3">
+            <div className="col-12 col-lg-8">
+              <div className="d-flex flex-wrap align-items-center gap-3 gap-md-4">
+                <div>
+                  <div className="font-monospace font-weight-bold font-size-20 font-size-sm-22 text-dark">4.9 / 5.0</div>
+                  <div className="font-size-11 text-secondary">Verified Studio Operator Rating</div>
+                </div>
+                <div className="border-start ps-3 ps-md-4">
+                  <div className="font-monospace font-weight-bold font-size-20 font-size-sm-22 text-primary" style={{ color: '#0066FF' }}>98.4%</div>
+                  <div className="font-size-11 text-secondary">Client Retention Rate</div>
+                </div>
+                <div className="border-start ps-3 ps-md-4">
+                  <div className="font-monospace font-weight-bold font-size-20 font-size-sm-22 text-success">$42M+</div>
+                  <div className="font-size-11 text-secondary">Total Bookings Processed</div>
+                </div>
+              </div>
             </div>
-            <div className="border-start ps-3 ps-md-4">
-              <div className="font-monospace font-weight-bold font-size-22 text-primary" style={{ color: '#0066FF' }}>98.4%</div>
-              <div className="font-size-11 text-secondary">Client Retention Rate</div>
-            </div>
-            <div className="border-start ps-3 ps-md-4">
-              <div className="font-monospace font-weight-bold font-size-22 text-success">$42M+</div>
-              <div className="font-size-11 text-secondary">Total Studio Bookings Processed</div>
+
+            <div className="col-12 col-lg-4 text-start text-lg-end">
+              <Link href="/book-consultation" className="sg_btn_primary font-size-13 py-2 px-4 d-inline-flex">
+                <span>Join Our Network of Studios →</span>
+              </Link>
             </div>
           </div>
-
-          <Link href="/book-consultation" className="sg_btn_primary font-size-13 py-2 px-4">
-            <span>Join Our Network of Studios →</span>
-          </Link>
         </div>
       </div>
     </section>

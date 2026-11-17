@@ -82,7 +82,8 @@ const HeaderOne = () => {
                   priority
                   width={220}
                   height={38}
-                  style={{ width: 'auto', height: '34px' }}
+                  className="sg_header_logo"
+                  style={{ width: 'auto', height: '32px' }}
                 />
               </Link>
             </div>
@@ -334,8 +335,8 @@ const HeaderOne = () => {
                   type="button"
                   onClick={toggleMobileMenu}
                   aria-label="Toggle Mobile Menu"
-                  className="btn p-2 border rounded-3 bg-light"
-                  style={{ cursor: "pointer" }}
+                  className="btn p-2 border rounded-3 bg-light d-inline-flex align-items-center justify-content-center"
+                  style={{ cursor: "pointer", minWidth: "44px", minHeight: "44px" }}
                 >
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E293B" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="3" y1="12" x2="21" y2="12" />
@@ -371,7 +372,7 @@ const HeaderOne = () => {
       >
         <div className="d-flex align-items-center justify-content-between mb-4 pb-2 border-bottom">
           <Image src={LogoImg} alt="StudioGrowth360" width={170} height={30} style={{ width: 'auto', height: '26px' }} />
-          <button onClick={closeAll} className="btn border-0 font-size-20 text-secondary p-1">
+          <button onClick={closeAll} className="btn border-0 font-size-20 text-secondary p-1 d-inline-flex align-items-center justify-content-center" style={{ minWidth: "44px", minHeight: "44px" }} aria-label="Close Mobile Menu">
             ✕
           </button>
         </div>

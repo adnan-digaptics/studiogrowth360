@@ -62,12 +62,11 @@ const AgencyPricingSection = () => {
             return (
               <div key={idx} className="col-12 col-lg-4">
                 <div
-                  className="p-4 p-xl-5 rounded-4 h-100 d-flex flex-column justify-content-between position-relative bg-white border"
+                  className={`p-4 p-xl-5 rounded-4 h-100 d-flex flex-column justify-content-between position-relative bg-white border ${pkg.popular ? "sg_popular_pricing_card" : ""}`}
                   style={{
                     borderColor: pkg.popular ? "#0066FF" : "#E2E8F0",
                     borderWidth: pkg.popular ? "2px" : "1px",
                     boxShadow: pkg.popular ? "0 20px 50px rgba(0, 102, 255, 0.12)" : "0 4px 20px rgba(0,0,0,0.03)",
-                    transform: pkg.popular ? "scale(1.02)" : "none",
                     zIndex: pkg.popular ? 2 : 1,
                   }}
                 >

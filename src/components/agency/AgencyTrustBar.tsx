@@ -39,11 +39,11 @@ const AgencyTrustBar = () => {
         </div>
 
         {/* Certified Badges Grid */}
-        <div className="row g-3 justify-content-center mb-5">
+        <div className="row g-2 g-sm-3 justify-content-center mb-5">
           {trustPartners.map((item, idx) => (
             <div key={idx} className="col-6 col-md-4 col-lg-2">
               <div
-                className="p-3 rounded-4 text-center h-100 border transition-all"
+                className="p-2 p-sm-3 rounded-4 text-center h-100 border transition-all"
                 style={{
                   background: "#F8FAFC",
                   borderColor: "#E2E8F0",
@@ -51,12 +51,12 @@ const AgencyTrustBar = () => {
                 }}
               >
                 <div className="d-flex justify-content-center mb-2">
-                  <IconContainer size={38} bg="rgba(0, 102, 255, 0.08)" border="1px solid rgba(0, 102, 255, 0.2)" radius="12px">
+                  <IconContainer size={36} bg="rgba(0, 102, 255, 0.08)" border="1px solid rgba(0, 102, 255, 0.2)" radius="12px">
                     {item.icon}
                   </IconContainer>
                 </div>
-                <div className="font-size-13 font-weight-bold text-dark text-truncate">{item.name}</div>
-                <div className="font-size-11 text-secondary text-truncate mt-1">{item.role}</div>
+                <div className="font-size-12 font-size-sm-13 font-weight-bold text-dark text-truncate">{item.name}</div>
+                <div className="font-size-10 font-size-sm-11 text-secondary text-truncate mt-1">{item.role}</div>
               </div>
             </div>
           ))}
