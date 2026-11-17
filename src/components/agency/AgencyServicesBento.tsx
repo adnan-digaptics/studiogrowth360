@@ -12,6 +12,7 @@ import {
   IconLayout,
   IconMegaphone,
 } from '@/components/common/AgencyIcons';
+import { publicAsset } from '@/utils/publicAsset';
 
 const AgencyServicesBento = () => {
   const [activeFilter, setActiveFilter] = useState<'all' | 'acquisition' | 'automation' | 'ai'>('all');
@@ -196,7 +197,7 @@ const AgencyServicesBento = () => {
                   {/* Visual Studio Image with ONLY ONE Bottom Stat Bar (Zero Top-Bottom Collision) */}
                   <div className="sg_img_16_10 shadow-sm border" style={{ borderColor: '#E2E8F0' }}>
                     <img
-                      src="/assets/img/studios/photography-studio.jpg"
+                      src={publicAsset("/assets/img/studios/photography-studio.jpg")}
                       alt="Photography Studio Acquisition"
                       className="sg_img_cover"
                     />
@@ -246,7 +247,7 @@ const AgencyServicesBento = () => {
                 {/* Visual Header with Real Podcast Studio */}
                 <div className="sg_img_16_9 mb-3 border" style={{ borderColor: 'rgba(255, 255, 255, 0.12)' }}>
                   <img
-                    src="/assets/img/studios/podcast-studio.jpg"
+                    src={publicAsset("/assets/img/studios/podcast-studio.jpg")}
                     alt="AI Receptionist in Podcast Studio"
                     className="sg_img_cover"
                   />
@@ -587,7 +588,7 @@ const AgencyServicesBento = () => {
                 <div className="col-12 col-sm-6">
                   <div className="sg_img_16_10 shadow-sm border" style={{ borderColor: '#E2E8F0' }}>
                     <img
-                      src="/assets/img/studios/yoga-studio.jpg"
+                      src={publicAsset("/assets/img/studios/yoga-studio.jpg")}
                       alt="Studio Website Booking Engine"
                       className="sg_img_cover"
                     />
@@ -664,7 +665,7 @@ const AgencyServicesBento = () => {
                 <div className="col-12 col-sm-6">
                   <div className="sg_img_16_10 shadow-sm border" style={{ borderColor: '#E2E8F0' }}>
                     <img
-                      src="/assets/img/studios/craft-studio.jpg"
+                      src={publicAsset("/assets/img/studios/craft-studio.jpg")}
                       alt="Studio Reputation & Marketing"
                       className="sg_img_cover"
                     />

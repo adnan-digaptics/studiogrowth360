@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { publicAsset } from "@/utils/publicAsset";
 import Link from "next/link";
 import { agencyServices, studioIndustries } from "@/data/agency";
 import { AgencyLayout } from "./AgencyLayout";
@@ -35,7 +36,7 @@ export default function AgencyHome() {
             </div>
             <div className="sg-hero-visual">
               <Image
-                src="/assets/img/podcast/hero_podcast_studio.jpg"
+                src={publicAsset("/assets/img/podcast/hero_podcast_studio.jpg")}
                 alt="Creative studio ready for a client recording session"
                 width={780}
                 height={650}
