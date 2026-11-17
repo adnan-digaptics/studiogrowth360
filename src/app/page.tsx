@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import React from 'react';
+import { publicAsset } from '@/utils/publicAsset';
 import HeaderOne from '@/layouts/headers/HeaderOne';
 import AgencyHero from '@/components/agency/AgencyHero';
 import AgencyTrustBar from '@/components/agency/AgencyTrustBar';
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
     siteName: "StudioGrowth360",
     images: [
       {
-        url: "/assets/img/studios/podcast-studio.jpg",
+        url: publicAsset("/assets/img/studios/podcast-studio.jpg"),
         width: 1200,
         height: 630,
         alt: "StudioGrowth360 Platform",
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
     title: "StudioGrowth360 | Studio Growth, CRM & Automation Partner",
     description:
       "Grow your studio. Automate your business. Scale without limits with GoHighLevel CRM, n8n workflows, and AI voice agents.",
-    images: ["/assets/img/studios/podcast-studio.jpg"],
+    images: [publicAsset("/assets/img/studios/podcast-studio.jpg")],
   },
 };
 

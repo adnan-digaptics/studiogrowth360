@@ -1,3 +1,5 @@
+import { publicAsset } from "@/utils/publicAsset";
+
 export interface ServiceDetail {
   id: string;
   slug: string;
@@ -326,7 +328,7 @@ export const industrySolutions: IndustryDetail[] = [
     heroSubheadline: "We help portrait, commercial, wedding, and rental photography studio owners attract high-paying clients, automate session contracts and deposits, and streamline client gallery delivery.",
     icon: "📸",
     badge: "For Photography Studios",
-    image: "/assets/img/studios/photography-studio.jpg",
+    image: publicAsset("/assets/img/studios/photography-studio.jpg"),
     painPoints: [
       "Hours wasted sending manual pricing PDFs and back-and-forth scheduling emails",
       "Prospects ghosting after receiving quotes without automated follow-up sequences",
@@ -390,7 +392,7 @@ export const industrySolutions: IndustryDetail[] = [
     heroSubheadline: "We help audio and video podcast studio owners fill weekday recording suites, automate multi-cam session bookings, manage guest paperwork, and upsell 24h post-production services.",
     icon: "🎙️",
     badge: "For Podcast Studios",
-    image: "/assets/img/studios/podcast-studio.jpg",
+    image: publicAsset("/assets/img/studios/podcast-studio.jpg"),
     painPoints: [
       "Empty recording booths on Tuesday through Thursday burning rent and fixed overhead",
       "Disjointed scheduling tools leading to double bookings and engineer confusion",
@@ -454,7 +456,7 @@ export const industrySolutions: IndustryDetail[] = [
     heroSubheadline: "We help boutique yoga, pilates, and wellness studio owners attract local students, sell out workshops, automate recurring monthly memberships, and eliminate student churn.",
     icon: "🧘",
     badge: "For Yoga Studios",
-    image: "/assets/img/studios/yoga-studio.jpg",
+    image: publicAsset("/assets/img/studios/yoga-studio.jpg"),
     painPoints: [
       "Struggling to convert trial intro offers into high-retention monthly memberships",
       "Manual class check-ins and student attendance tracking causing front-desk congestion",
@@ -518,7 +520,7 @@ export const industrySolutions: IndustryDetail[] = [
     heroSubheadline: "We help pottery, painting, woodworking, and craft studio owners sell out weekend workshops, capture corporate team building parties, and generate predictable recurring revenue.",
     icon: "🎨",
     badge: "For Craft Studios",
-    image: "/assets/img/studios/craft-studio.jpg",
+    image: publicAsset("/assets/img/studios/craft-studio.jpg"),
     painPoints: [
       "Half-empty workshops with seats going unfilled due to lack of localized marketing",
       "Manual tracking of ticket registrations, supply counts, and dietary/space requirements",

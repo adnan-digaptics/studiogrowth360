@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { industrySolutions } from '@/data/agency';
 import { IconContainer, getIndustryVectorIcon } from '@/components/common/AgencyIcons';
+import { publicAsset } from '@/utils/publicAsset';
 
 const studioFeatures = [
   {
@@ -215,7 +216,7 @@ const AgencyStudioShowcase = () => {
             <div className="col-12 col-lg-6 position-relative sg_showcase_hero_img" style={{ minHeight: '260px' }}>
               <div className="w-100 h-100 position-relative overflow-hidden" style={{ minHeight: '260px', borderRadius: '0 0 16px 16px' }}>
                 <img
-                  src="/assets/img/studios/studio-platform-hero.jpg"
+                  src={publicAsset("/assets/img/studios/studio-platform-hero.jpg")}
                   alt="Studio Operations Command Center"
                   className="w-100 h-100 object-fit-cover position-absolute top-0 start-0"
                 />

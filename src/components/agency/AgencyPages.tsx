@@ -18,6 +18,7 @@ import ConsultationForm from "./ConsultationForm";
 import AgencyCtaSection from "./AgencyCtaSection";
 import AgencyFaqSection from "./AgencyFaqSection";
 import AgencyTrustBar from "./AgencyTrustBar";
+import { publicAsset } from "@/utils/publicAsset";
 import {
   IconContainer,
   getServiceVectorIcon,
@@ -31,13 +32,13 @@ import {
 } from "@/components/common/AgencyIcons";
 
 const serviceImages: Record<string, string> = {
-  'lead-generation': '/assets/img/studios/photography-studio.jpg',
-  'n8n-automation': '/assets/img/studios/studio-platform-hero.jpg',
-  'gohighlevel-services': '/assets/img/studios/studio-platform-hero.jpg',
-  'crm-solutions': '/assets/img/studios/studio-platform-hero.jpg',
-  'ai-automation': '/assets/img/studios/podcast-studio.jpg',
-  'website-funnel-development': '/assets/img/studios/yoga-studio.jpg',
-  'digital-marketing': '/assets/img/studios/craft-studio.jpg',
+  'lead-generation': publicAsset('/assets/img/studios/photography-studio.jpg'),
+  'n8n-automation': publicAsset('/assets/img/studios/studio-platform-hero.jpg'),
+  'gohighlevel-services': publicAsset('/assets/img/studios/studio-platform-hero.jpg'),
+  'crm-solutions': publicAsset('/assets/img/studios/studio-platform-hero.jpg'),
+  'ai-automation': publicAsset('/assets/img/studios/podcast-studio.jpg'),
+  'website-funnel-development': publicAsset('/assets/img/studios/yoga-studio.jpg'),
+  'digital-marketing': publicAsset('/assets/img/studios/craft-studio.jpg'),
 };
 
 /* =========================================================================
@@ -335,7 +336,7 @@ export function ServiceDetailPage({ slug }: { slug: string }) {
               <div className="rounded-4 overflow-hidden shadow-lg border position-relative" style={{ borderColor: "rgba(56, 189, 248, 0.35)", background: "#0F172A" }}>
                 <div className="sg_img_16_10 position-relative">
                   <img
-                    src={serviceImages[service.slug] || "/assets/img/studios/studio-platform-hero.jpg"}
+                    src={serviceImages[service.slug] || publicAsset("/assets/img/studios/studio-platform-hero.jpg")}
                     alt={service.title}
                     className="sg_img_cover"
                   />
@@ -1279,7 +1280,7 @@ export function AboutPage() {
               <div className="position-relative overflow-hidden rounded-4 border shadow-sm" style={{ border: "1px solid #E2E8F0" }}>
                 <div className="sg_img_16_10" style={{ borderRadius: "16px 16px 0 0" }}>
                   <img
-                    src="/assets/img/studios/studio-platform-hero.jpg"
+                    src={publicAsset("/assets/img/studios/studio-platform-hero.jpg")}
                     alt="StudioGrowth360 Platform Operations"
                     className="sg_img_cover"
                   />

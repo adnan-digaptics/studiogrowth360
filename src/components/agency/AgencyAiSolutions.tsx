@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react';
+import { publicAsset } from '@/utils/publicAsset';
 import Link from 'next/link';
 import {
   IconContainer,
@@ -92,7 +93,7 @@ const AgencyAiSolutions = () => {
           <div className="row g-0 align-items-center">
             <div className="col-12 col-lg-5 position-relative" style={{ minHeight: "260px" }}>
               <img
-                src="/assets/img/studios/podcast-studio.jpg"
+                src={publicAsset("/assets/img/studios/podcast-studio.jpg")}
                 alt="AI Receptionist in Podcast Studio"
                 className="sg_img_cover position-absolute top-0 start-0"
               />
